@@ -37,10 +37,50 @@
             padding: 0 20px;
         }
 
-        /* HERO SECTION */
+        /* AMÉLIORATIONS HERO SECTION (EN-TÊTE) */
         header {
             padding: 120px 0 80px 0;
             text-align: center;
+            /* Ajoute un halo de lumière très subtil derrière toi */
+            background: radial-gradient(circle at top, #15151e 0%, var(--bg-color) 60%);
+        }
+
+        .profile-pic {
+            width: 140px;
+            height: 140px;
+            border-radius: 50%; /* Rend la photo parfaitement ronde */
+            object-fit: cover;
+            border: 3px solid var(--surface-color);
+            box-shadow: 0 10px 30px rgba(41, 151, 255, 0.15); /* Lueur bleue Apple-like */
+            margin-bottom: 20px;
+        }
+
+        .location-badge {
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 6px;
+        }
+
+        .hero-tags {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-bottom: 30px;
+        }
+
+        .hero-tag {
+            background-color: rgba(41, 151, 255, 0.1); /* Fond bleu très transparent */
+            color: var(--accent-color);
+            padding: 6px 16px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            letter-spacing: 0.05em;
         }
 
         h1 {
@@ -233,13 +273,32 @@
     <div class="container">
         
         <header>
+            <!-- Remplace "photo-profil.jpg" par le nom exact de ton image -->
+            <img src="Photos/photo-profil.jpg" alt="Maxime Demesy" class="profile-pic">
+            
             <h1>Maxime Demesy</h1>
             <h2>Ingénieur R&D Mécatronique & Robotique</h2>
+            
+            <div class="location-badge">
+                <!-- Icône SVG "Pin Localisation" -->
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+                Basé au Québec, Canada
+            </div>
+
+            <!-- Badges de compétences rapides pour habiller l'espace -->
+            <div class="hero-tags">
+                <span class="hero-tag">Robotique Parallèle</span>
+                <span class="hero-tag">Soft-Robotic</span>
+                <span class="hero-tag">Mécatronique (IoT)</span>
+            </div>
+
             <p class="bio">
                 En dernière année d'ingénierie à l'ENSMM. Spécialisé en robotique parallèle, mécanismes compliants et prototypage avancé. Animé par la volonté de concevoir des systèmes mécaniques intelligents, fiables et élégants pour des secteurs d'excellence (Médical, Aérospatial, Robotique de pointe).
             </p>
+            
             <div>
                 <a href="#projets" class="btn">Voir les projets</a>
+                <!-- Vérifie bien le chemin de ton CV -->
                 <a href="Docs/CV_Maxime_Demesy_FR_2026.pdf" target="_blank" class="btn btn-outline">Télécharger mon CV</a>
             </div>
         </header>

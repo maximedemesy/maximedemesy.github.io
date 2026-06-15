@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Maxime Demesy | Ingénieur R&D Mécatronique & Robotique</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+    
+    <style>
+        /* DESIGN SYSTEM - APPLE DARK MODE STYLE */
+        :root {
+            --bg-color: #000000;
+            --surface-color: #1c1c1e;
+            --text-primary: #f5f5f7;
+            --text-secondary: #86868b;
+            --accent-color: #2997ff;
+            --accent-hover: #147ce5;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Inter', sans-serif;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-primary);
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* HERO SECTION */
+        header {
+            padding: 120px 0 80px 0;
+            text-align: center;
+        }
+
+        h1 {
+            font-size: 3.5rem;
+            font-weight: 800;
+            letter-spacing: -0.02em;
+            margin-bottom: 10px;
+        }
+
+        h2 {
+            font-size: 1.5rem;
+            color: var(--text-secondary);
+            font-weight: 400;
+            margin-bottom: 30px;
+        }
+
+        .bio {
+            max-width: 600px;
+            margin: 0 auto 40px auto;
+            color: var(--text-secondary);
+            font-size: 1.1rem;
+        }
+
+        .btn {
+            display: inline-block;
+            background-color: var(--accent-color);
+            color: white;
+            padding: 12px 24px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: background 0.3s ease;
+            margin: 5px;
+        }
+
+        .btn:hover { background-color: var(--accent-hover); }
+        
+        .btn-outline {
+            background-color: transparent;
+            border: 1px solid var(--text-secondary);
+            color: var(--text-primary);
+        }
+        
+        .btn-outline:hover {
+            background-color: var(--surface-color);
+            border-color: var(--text-primary);
+        }
+
+        /* SECTION PROJETS */
+        section {
+            padding: 60px 0;
+        }
+
+        .section-title {
+            font-size: 2rem;
+            margin-bottom: 40px;
+            border-bottom: 1px solid #333;
+            padding-bottom: 10px;
+        }
+
+        .project-card {
+            background-color: var(--surface-color);
+            border-radius: 18px;
+            overflow: hidden;
+            margin-bottom: 40px;
+            display: flex;
+            flex-direction: column;
+            transition: transform 0.3s ease;
+        }
+
+        .project-card:hover { transform: translateY(-5px); }
+
+        .project-image {
+            width: 100%;
+            height: 350px;
+            background-color: #2c2c2e; /* Couleur de fond si l'image ne charge pas */
+            object-fit: cover;
+        }
+
+        .project-content {
+            padding: 40px;
+        }
+
+        .project-tags {
+            color: var(--accent-color);
+            font-size: 0.9rem;
+            font-weight: 600;
+            margin-bottom: 10px;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        .project-title {
+            font-size: 1.8rem;
+            margin-bottom: 20px;
+        }
+
+        .project-details h4 {
+            margin-top: 20px;
+            margin-bottom: 8px;
+            color: var(--text-primary);
+        }
+
+        .project-details p, .project-details ul {
+            color: var(--text-secondary);
+            font-size: 1rem;
+            margin-bottom: 15px;
+        }
+
+        .project-details ul {
+            padding-left: 20px;
+        }
+
+        /* SKILLS & BEYOND SECTION */
+        .grid-2 {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+
+        .info-card {
+            background-color: var(--surface-color);
+            padding: 30px;
+            border-radius: 18px;
+        }
+
+        .info-card h3 { margin-bottom: 15px; }
+        .info-card p, .info-card li { color: var(--text-secondary); }
+
+        /* FOOTER */
+        footer {
+            text-align: center;
+            padding: 60px 0;
+            border-top: 1px solid #333;
+            margin-top: 60px;
+            color: var(--text-secondary);
+        }
+
+        footer a {
+            color: var(--accent-color);
+            text-decoration: none;
+        }
+
+        @media (max-width: 768px) {
+            .grid-2 { grid-template-columns: 1fr; }
+            h1 { font-size: 2.5rem; }
+            .project-image { height: 250px; }
+            .project-content { padding: 20px; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        
+        <header>
+            <h1>Maxime Demesy</h1>
+            <h2>Ingénieur R&D Mécatronique & Robotique</h2>
+            <p class="bio">
+                En dernière année d'ingénierie à l'ENSMM. Spécialisé en robotique parallèle, mécanismes compliants et prototypage avancé. Animé par la volonté de concevoir des systèmes mécaniques intelligents, fiables et élégants pour des secteurs d'excellence (Médical, Aérospatial, Robotique de pointe).
+            </p>
+            <div>
+                <a href="#projets" class="btn">Voir les projets</a>
+                <a href="CV_Maxime_Demesy.pdf" target="_blank" class="btn btn-outline">Télécharger mon CV</a>
+            </div>
+        </header>
+
+        <section id="projets">
+            <h2 class="section-title">Projets d'Ingénierie</h2>
+
+            <div class="project-card">
+                <img src="robot-laval.jpg" alt="Robot Parallèle 4DDL" class="project-image">
+                <div class="project-content">
+                    <p class="project-tags">Université Laval, Québec | Robotique Parallèle & Impression 3D</p>
+                    <h3 class="project-title">Robot Parallèle Reconfigurable & Gripper Bistable</h3>
+                    <div class="project-details">
+                        <h4>Le Challenge</h4>
+                        <p>Développer de A à Z un robot parallèle (4-DOF) à architecture reconfigurable intégrant un effecteur capable de s'adapter à n'importe quelle forme d'objet via un pilotage purement mécanique.</p>
+                        <h4>La Solution</h4>
+                        <ul>
+                            <li><strong>Modélisation Mathématique :</strong> Analyse cinématique, singularités et dynamique du système, validées par un jumeau numérique sous MATLAB/Simscape.</li>
+                            <li><strong>Innovation Mécanique :</strong> Conception d'une pince monobloc intégrant un mécanisme bistable "cam-follower" (type stylo) pour une double action (verrouillage/déverrouillage en butée Z).</li>
+                            <li><strong>Soft-Robotic :</strong> Mors équipés de la technologie Fin Ray, se déformant pour épouser les objets complexes sans capteurs de force.</li>
+                        </ul>
+                        <h4>Résultat</h4>
+                        <p>Un prototype fonctionnel imprimé en 3D (Poudre MJF), validant l'intégration de la compliance pour des opérations de Pick & Place avancées.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="project-card">
+                <img src="tracebot.jpg" alt="Préhenseur TraceBot CEA" class="project-image">
+                <div class="project-content">
+                    <p class="project-tags">CEA Paris-Saclay | Soft-Robotic & Actionnement par câble</p>
+                    <h3 class="project-title">Préhenseur TraceBot & Mécanismes Compliants</h3>
+                    <div class="project-details">
+                        <h4>Le Challenge</h4>
+                        <p>Dans le cadre du projet européen TraceBot, reconcevoir un doigt robotique actionné par câble pour réduire son inertie, simplifier son assemblage et conserver une "transparence mécanique" parfaite (10N de force).</p>
+                        <h4>La Solution</h4>
+                        <ul>
+                            <li><strong>Suppression des pivots :</strong> Remplacement des articulations mécaniques par des "compliant mechanisms" imprimés en TPU, assurant le rappel élastique naturel.</li>
+                            <li><strong>Structure Gyroïde :</strong> Intégration d'un treillis mathématique (gyroïde) isotrope dans la masse pour optimiser le grip et permettre une déformation homogène sur les objets saisis.</li>
+                            <li><strong>Banc d'essai sur-mesure :</strong> Conception matérielle et logicielle (Arduino/C++) d'un banc de test dynamique.</li>
+                        </ul>
+                        <h4>Résultat</h4>
+                        <p>Une articulation compliante validée expérimentalement à plus de 100 000 cycles de flexion, avec une architecture drastiquement épurée.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="project-card">
+                <img src="forvia-gripper.jpg" alt="Smart Gripper Forvia" class="project-image">
+                <div class="project-content">
+                    <p class="project-tags">Forvia (Faurecia) | Industrie 4.0 & Mécatronique (IoT)</p>
+                    <h3 class="project-title">Smart Gripper & Fiabilisation Robotique</h3>
+                    <div class="project-details">
+                        <h4>Le Challenge</h4>
+                        <p>Sur une ligne de production automobile à haute cadence, un bras robotisé 6 axes souffrait d'un fort taux d'échec lors du clippage d'agrafes plastiques. Objectif : éradiquer les défauts sans arrêter la production.</p>
+                        <h4>La Solution</h4>
+                        <ul>
+                            <li><strong>Redesign Mécanique :</strong> Usinage d'un nouveau doigt monobloc en acier intégrant un chanfrein d'absorption d'erreurs de positionnement (tolérance +/- 1mm).</li>
+                            <li><strong>Preuve de Concept (IoT) :</strong> Remplacement des systèmes de vision coûteux par une analyse dynamique embarquée. Développement d'un module Wi-Fi (Arduino, MPU-6050) fixé sur le bras.</li>
+                            <li><strong>Traitement du signal :</strong> Détection fiable du "clic" mécanique de l'agrafe via l'isolation d'un pic d'accélération spécifique.</li>
+                        </ul>
+                        <h4>Résultat</h4>
+                        <p>Chute drastique des erreurs de placement. Récompensé par le prix de "L'Idée d'Amélioration du Mois" par la direction de l'usine.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="background">
+            <h2 class="section-title">Profil & Éducation</h2>
+            <div class="grid-2">
+                <div class="info-card">
+                    <h3>Diplôme & Expertise</h3>
+                    <p><strong>SUPMICROTECH - ENSMM</strong><br>Diplôme d'Ingénieur (Grade Master) - 2026</p>
+                    <p style="margin-top:10px;">Spécialisation <strong>CROC</strong> (Conception de Robots et Objets Connectés).</p>
+                    <ul style="margin-top:15px; padding-left: 20px;">
+                        <li>Conception & Simulation (CATIA V5, SolidWorks, PTC Creo, ANSYS)</li>
+                        <li>Prototypage Rapide (SLA, SLS, MJF, Poudre, Découpe Laser)</li>
+                        <li>Systèmes Embarqués (C/C++, Arduino, STM32)</li>
+                    </ul>
+                </div>
+                
+                <div class="info-card">
+                    <h3>Au-delà de l'ingénierie</h3>
+                    <ul style="padding-left: 20px; margin-top:15px;">
+                        <li style="margin-bottom:10px;"><strong>Maker Spirit :</strong> Modélisation 3D personnelle et robotique Open-Source. Toujours à la recherche d'une solution élégante à un problème complexe.</li>
+                        <li><strong>Arts Martiaux :</strong> Pratique rigoureuse des sports de combat, forgeant la discipline, la résilience et la gestion de la pression.</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <footer>
+            <p><strong>Maxime Demesy</strong></p>
+            <p><a href="mailto:maxime.demesy@ens2m.org">maxime.demesy@ens2m.org</a> | +33 7 81 05 41 86</p>
+            <p style="margin-top:15px;">
+                <a href="https://linkedin.com/in/ton-profil" target="_blank">Profil LinkedIn</a>
+            </p>
+        </footer>
+
+    </div>
+</body>
+</html>

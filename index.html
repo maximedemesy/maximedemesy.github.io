@@ -181,11 +181,12 @@
         /* STYLE POUR L'IMAGE DES LOISIRS */
         .hobby-image {
             width: 100%;
-            height: 220px; /* Tu pourras ajuster cette hauteur selon ta photo */
-            object-fit: cover; /* Permet de remplir le cadre sans déformer l'image */
-            border-radius: 12px; /* Bords arrondis façon Apple */
-            margin-top: 20px; /* Espace entre le texte et l'image */
+            height: 250px; /* Limite la hauteur pour ne pas envahir l'écran */
+            object-fit: contain; /* Affiche l'image en entier sans la couper */
+            border-radius: 12px;
+            margin-top: 20px;
             display: block;
+            background-color: var(--surface-color); /* Se fond avec la carte */
         }
         .school-logo {
             width: 80px; /* Taille du logo, modifiable */
@@ -247,7 +248,7 @@
             <h2 class="section-title">Projets d'Ingénierie</h2>
 
             <div class="project-card">
-                <img src="Photos/robot-laval.png" alt="Robot Parallèle 4DDL" class="project-image">
+                <img src="Photos/robot-laval-header.png" alt="Robot Parallèle 4DDL" class="project-image">
                 <div class="project-content">
                     <p class="project-tags">Université Laval, Québec | Robotique Parallèle & Impression 3D</p>
                     <h3 class="project-title">Robot Parallèle Reconfigurable & Gripper Bistable</h3>
@@ -267,7 +268,7 @@
             </div>
 
             <div class="project-card">
-                <img src="Photos/tracebot.png" alt="Préhenseur TraceBot CEA" class="project-image">
+                <img src="Photos/tracebot-header.png" alt="Préhenseur TraceBot CEA" class="project-image">
                 <div class="project-content">
                     <p class="project-tags">CEA Paris-Saclay | Soft-Robotic & Actionnement par câble</p>
                     <h3 class="project-title">Préhenseur TraceBot & Mécanismes Compliants</h3>
@@ -287,7 +288,7 @@
             </div>
 
             <div class="project-card">
-                <img src="Photos/forvia-gripper.png" alt="Smart Gripper Forvia" class="project-image">
+                <img src="Photos/forvia-gripper-header.png" alt="Smart Gripper Forvia" class="project-image">
                 <div class="project-content">
                     <p class="project-tags">Forvia (Faurecia) | Industrie 4.0 & Mécatronique (IoT)</p>
                     <h3 class="project-title">Smart Gripper & Fiabilisation Robotique</h3>

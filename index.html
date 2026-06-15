@@ -178,7 +178,15 @@
             gap: 20px;
             margin-bottom: 15px;
         }
-
+        /* STYLE POUR L'IMAGE DES LOISIRS */
+        .hobby-image {
+            width: 100%;
+            height: 220px; /* Tu pourras ajuster cette hauteur selon ta photo */
+            object-fit: cover; /* Permet de remplir le cadre sans déformer l'image */
+            border-radius: 12px; /* Bords arrondis façon Apple */
+            margin-top: 20px; /* Espace entre le texte et l'image */
+            display: block;
+        }
         .school-logo {
             width: 80px; /* Taille du logo, modifiable */
             height: auto;
@@ -324,13 +332,16 @@
                     </ul>
                 </div>
                 
-                <!-- CARTE PASSIONS (Inchangée) -->
+               <!-- CARTE PASSIONS -->
                 <div class="info-card">
                     <h3>Au-delà de l'ingénierie</h3>
                     <ul style="padding-left: 20px; margin-top:15px;">
                         <li style="margin-bottom:15px;"><strong>Maker Spirit :</strong> Modélisation 3D personnelle et robotique Open-Source. Toujours à la recherche d'une solution élégante à un problème complexe.</li>
                         <li><strong>Arts Martiaux :</strong> Pratique rigoureuse des sports de combat, forgeant la discipline, la résilience et la gestion de la pression.</li>
                     </ul>
+                    
+                    <!-- Remplace src par le nom de ta photo -->
+                    <img src="Photos/loisirs.jpg" alt="Mes loisirs" class="hobby-image">
                 </div>
 
             </div>

@@ -81,23 +81,21 @@
                     <p>La première phase a consisté à réaliser une cartographie statistique complète des erreurs (agrafes "mal engagées" ou "absentes") en fonction de leur position sur le panneau (PAVD/PAVG), tout en mesurant les efforts d'engagement nécessaires (entre 14N et 21N).</p>
                 </div>
                 <div>
-                    
                     <img src="Photos/forvia-stats.png" alt="Analyse statistique des erreurs d'agrafage" class="grid-image">
                 </div>
             </div>
         </div>
 
-        
+        <!-- LA CONCEPTION MÉCANIQUE -->
         <div class="content-section">
             <h2>2. Conception du nouveau doigt</h2>
             <div class="grid-half">
                 <div>
-                    
                     <img src="Photos/forvia-doigts.jpg" alt="Conception PTC Creo du nouveau doigt de préhension" class="grid-image">
                 </div>
                 <div>
                     <p>Plutôt que de recalibrer continuellement la trajectoire du robot, j'ai repensé la mécanique de l'effecteur. Sous <strong>Pro/ENGINEER (PTC Creo)</strong>, j'ai modélisé un nouveau "doigt de préhension".</p>
-                    <p>L'innovation réside dans l'usinage d'un chanfrein intérieur spécifique en acier. Cette forme en entonnoir permet de guider mécaniquement l'agrafe et d'absorber physiquement les micro-erreurs de positionnement. Le nouveau doigt recouvre également mieux l'agraffe et peut donc encaisser plus d'efforts avant que celle-ci ne lui échappe.</p>
+                    <p>L'innovation réside dans l'usinage d'un chanfrein intérieur spécifique en acier. Cette forme en entonnoir permet de guider mécaniquement l'agrafe et d'absorber physiquement les micro-erreurs de positionnement. Le nouveau doigt recouvre également mieux l'agrafe et peut donc encaisser plus d'efforts avant que celle-ci ne lui échappe.</p>
                     <ul>
                         <li><strong>Résultat industriel :</strong> Lors d'un test "run" d'une heure, le prototype a affiché <strong>100% de réussite</strong> (agrafes présentes et engagées) sur l'agrafe la plus critique.</li>
                         <li><strong>Déploiement :</strong> La direction a validé la généralisation de cette solution avec le déploiement de 5 doigts sur les stations.</li>
@@ -106,17 +104,61 @@
             </div>
         </div>
 
-        
+        <!-- L'INTELLIGENCE EMBARQUÉE -->
         <div class="content-section">
             <h2>3. Intelligence Embarquée : Détection du "Clic"</h2>
             <div class="grid-half">
                 <div>
-                    <p>Les systèmes de vision traditionnels (caméras Cognex) atteignent leurs limites dans ces environnements confinés. J'ai développé une solution alternative IoT reposant sur l'analyse dynamique du signal d'accéleration du robot.</p>
-                    <p>En utilisant des <strong>Arduino Nano</strong> communiquant via des modules radio <strong>NRF24L01+</strong>, le système est capable d'identifier le pic d'accélération en mm/s² généré par le "clic" mécanique lors du verrouillage de l'agrafe. Cette solution permet une validation binaire et immédiate de l'opération.</p>
+                    <p>La machine travaillant "à l'aveugle", il fallait lui donner la capacité de vérifier elle-même son travail[cite: 3]. J'ai développé une solution IoT (Arduino Nano, module radio NRF24L01+ et MPU-6050) pour capter l'accélération caractéristique générée par le "clic" mécanique lors du verrouillage[cite: 3].</p>
+                    <p>L'algorithme permet au robot de réagir en temps réel[cite: 3] :</p>
+                    <ul>
+                        <li><strong>Accélération caractéristique :</strong> L'agrafe est validée[cite: 3].</li>
+                        <li><strong>Aucune accélération :</strong> L'agrafe est mal engagée. Le robot vérifie son capteur laser et recommence un cycle[cite: 3].</li>
+                        <li><strong>Accélération anormale :</strong> L'agrafe a sauté ou est mal positionnée. Le robot se retire pour éviter une collision[cite: 3].</li>
+                    </ul>
                 </div>
                 <div>
-                    
                     <img src="Photos/forvia-arduino.jpg" alt="Schéma Arduino NRF24L01+ et graphique d'accélération" class="grid-image">
+                </div>
+            </div>
+        </div>
+
+        <!-- DATA, ÉNERGIE ET ÉVOLUTION -->
+        <div class="content-section">
+            <h2>4. Données, Autonomie et Capteur d'Usure</h2>
+            <div class="grid-half">
+                <div>
+                    <p><strong>Traitement des données :</strong> Les mesures sont envoyées sans fil à un ordinateur et traitées sur Excel via la macro PLX-DAQ[cite: 3]. Une intégration d'algorithmes de Pattern Recognition (R-CNN, YOLO v2) sous MATLAB a été étudiée pour classifier les erreurs complexes[cite: 3].</p>
+                    <p><strong>Autonomie :</strong> Le système consommant 33.6 mA, j'ai conçu une alimentation sur-mesure utilisant deux batteries LiPo de 3.7V (250mAh) en série, garantissant plus de 3 heures d'autonomie pour les essais[cite: 3].</p>
+                </div>
+                <div>
+                    <p><strong>Mesure d'usure :</strong> Pour valider l'impact mécanique des nouveaux doigts de préhension, j'ai ajouté un capteur résistif de pression à couche mince[cite: 3]. Intégré entre le vérin et la glissière avec une résistance de 10 kOhm, il permet de quantifier l'effort normal et d'anticiper l'usure de la machine[cite: 3].</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- RÉSULTATS : AVANT / APRÈS -->
+        <div class="content-section" style="background: transparent; padding: 0; border-top: 1px solid #333; padding-top: 40px;">
+            <h2 style="text-align: center; margin-bottom: 40px; border: none;">Démonstration en conditions réelles</h2>
+            
+            <div class="grid-half">
+                <!-- VIDÉO AVANT -->
+                <div>
+                    <h3 style="text-align: center; margin-bottom: 15px; color: var(--text-secondary); font-size: 1.2rem;">Avant : Taux d'échec élevé</h3>
+                    <div class="video-container">
+                        <!-- Remplace le src par ta vidéo "avant" -->
+                        <video src="Videos/forvia-avant.mp4" controls playsinline style="border-radius: 12px;"></video>
+                    </div>
+                </div>
+                
+                <!-- VIDÉO APRÈS -->
+                <div>
+                    <h3 style="text-align: center; margin-bottom: 15px; color: var(--accent-color); font-size: 1.2rem;">Après : Opération fiabilisée</h3>
+                    <div class="video-container">
+                        <!-- Remplace le src par ta vidéo "après" -->
+                        <!-- Les attributs autoplay loop muted permettent à la vidéo de se lancer toute seule comme un GIF -->
+                        <video src="Videos/forvia-apres.mp4" controls autoplay loop muted playsinline style="border-radius: 12px;"></video>
+                    </div>
                 </div>
             </div>
         </div>

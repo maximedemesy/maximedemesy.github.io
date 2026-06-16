@@ -1,1 +1,154 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Projet Laval | Maxime Demesy</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+    
+    <style>
+        /* DESIGN SYSTEM - APPLE DARK MODE STYLE */
+        :root {
+            --bg-color: #000000;
+            --surface-color: #1c1c1e;
+            --text-primary: #f5f5f7;
+            --text-secondary: #86868b;
+            --accent-color: #2997ff;
+            --accent-hover: #147ce5;
+        }
 
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Inter', sans-serif; }
+
+        body { background-color: var(--bg-color); color: var(--text-primary); line-height: 1.6; }
+        
+        .container { max-width: 1000px; margin: 0 auto; padding: 0 20px; min-height: 100vh; display: flex; flex-direction: column;}
+        
+        /* BOUTON RETOUR (MENU STICKY AVEC EFFET VERRE) */
+        .nav-bar { 
+            position: sticky;
+            top: 0;
+            padding: 20px 0;
+            margin-bottom: 20px;
+            background-color: rgba(0, 0, 0, 0.7);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            z-index: 1000;
+        }
+        .back-link { color: var(--accent-color); text-decoration: none; font-weight: 600; display: inline-flex; align-items: center; gap: 8px;}
+        .back-link:hover { text-decoration: underline; }
+
+        /* HEADER DU PROJET */
+        .project-header { margin-bottom: 40px; text-align: center; }
+        .project-header h1 { font-size: 3rem; margin-bottom: 10px; }
+        .project-tags { color: var(--accent-color); font-weight: 600; text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 20px; display: block;}
+
+        /* SECTION WORK IN PROGRESS */
+        .wip-section { 
+            background-color: var(--surface-color); 
+            padding: 60px 40px; 
+            border-radius: 18px; 
+            text-align: center;
+            flex-grow: 1; /* Permet à la section de prendre l'espace restant */
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            margin-bottom: 60px;
+        }
+
+        .wip-section h2 { margin-bottom: 20px; font-size: 2rem; color: var(--text-primary); }
+        .wip-section p { color: var(--text-secondary); margin-bottom: 15px; font-size: 1.1rem; max-width: 600px; }
+
+        /* ANIMATION DE L'ENGRENAGE */
+        @keyframes spin {
+            100% { transform: rotate(360deg); }
+        }
+        .wip-icon {
+            margin-bottom: 30px;
+            animation: spin 10s linear infinite; /* Rotation lente et continue */
+        }
+
+        /* BOUTONS */
+        .btn-container {
+            margin-top: 40px;
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .btn {
+            display: inline-block;
+            background-color: var(--accent-color);
+            color: white;
+            padding: 12px 24px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: background 0.3s ease;
+        }
+
+        .btn:hover { background-color: var(--accent-hover); }
+        
+        .btn-outline {
+            background-color: transparent;
+            border: 1px solid var(--text-secondary);
+            color: var(--text-primary);
+        }
+        
+        .btn-outline:hover {
+            background-color: rgba(255, 255, 255, 0.1);
+            border-color: var(--text-primary);
+        }
+
+        @media (max-width: 768px) {
+            .project-header h1 { font-size: 2rem; }
+            .wip-section { padding: 40px 20px; }
+            .btn-container { flex-direction: column; width: 100%; }
+            .btn { width: 100%; text-align: center; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <!-- NAVIGATION FIXE -->
+        <div class="nav-bar">
+            <a href="index.html" class="back-link">← Retour au portfolio</a>
+        </div>
+
+        <div class="project-header">
+            <span class="project-tags">Université Laval, Québec | Robotique Parallèle & Impression 3D</span>
+            <h1>Robot Parallèle Reconfigurable</h1>
+        </div>
+
+        <!-- SECTION WORK IN PROGRESS -->
+        <div class="wip-section">
+            
+            <!-- ICÔNE ENGRENAGE ANIMÉE (SVG pur, pas besoin d'image à télécharger !) -->
+            <div class="wip-icon">
+                <svg xmlns="http://www.w3.org/2000/svg" width="80" height="80" viewBox="0 0 24 24" fill="none" stroke="var(--accent-color)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                    <circle cx="12" cy="12" r="3"></circle>
+                    <path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"></path>
+                </svg>
+            </div>
+
+            <h2>Projet en cours de développement</h2>
+            
+            <p>La modélisation mathématique, la conception mécanique de l'effecteur complient et la fabrication de ce robot parallèle sont actuellement en cours dans les laboratoires de l'Université Laval.</p>
+            
+            <p>Cette page sera mise à jour avec l'étude cinématique, l'analyse des singularités, les jumeaux numériques sous Simscape et les vidéos du prototype en action dès sa finalisation.</p>
+
+            <div class="btn-container">
+                <!-- Lien mailto avec un objet pré-rempli -->
+                <a href="mailto:maxime.demesy@gmail.com?subject=Question%20-%20Projet%20Robot%20Laval" class="btn">Me contacter pour en savoir plus</a>
+                <!-- Retourne directement sur la section projets de ta page d'accueil -->
+                <a href="index.html#projets" class="btn btn-outline">Découvrir mes autres projets</a>
+            </div>
+            
+        </div>
+
+    </div>
+
+</body>
+</html>

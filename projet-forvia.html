@@ -18,22 +18,37 @@
         }
 
         * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Inter', sans-serif; }
+        
+        /* EFFET DE DEFILEMENT PAR A-COUP (SCROLL SNAPPING) */
+        html { 
+            scroll-snap-type: y mandatory; 
+            scroll-behavior: smooth; 
+        }
+
         body { background-color: var(--bg-color); color: var(--text-primary); line-height: 1.6; }
         
         .container { max-width: 1000px; margin: 0 auto; padding: 0 20px; }
         
         /* BOUTON RETOUR */
-        .nav-bar { padding: 40px 0; }
+        .nav-bar { padding: 40px 0; scroll-snap-align: start; }
         .back-link { color: var(--accent-color); text-decoration: none; font-weight: 600; display: inline-flex; align-items: center; gap: 8px;}
         .back-link:hover { text-decoration: underline; }
 
         /* HEADER DU PROJET */
-        .project-header { margin-bottom: 60px; text-align: center; }
+        .project-header { margin-bottom: 60px; text-align: center; scroll-snap-align: start; scroll-margin-top: 40px; }
         .project-header h1 { font-size: 3rem; margin-bottom: 10px; }
         .project-tags { color: var(--accent-color); font-weight: 600; text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 20px; display: block;}
 
         /* SECTIONS DE CONTENU */
-        .content-section { background-color: var(--surface-color); padding: 40px; border-radius: 18px; margin-bottom: 40px; }
+        .content-section { 
+            background-color: var(--surface-color); 
+            padding: 40px; 
+            border-radius: 18px; 
+            margin-bottom: 40px; 
+            /* On ancre la section en haut de l'écran lors du défilement */
+            scroll-snap-align: start; 
+            scroll-margin-top: 20px; 
+        }
         .content-section h2 { margin-bottom: 20px; font-size: 1.8rem; border-bottom: 1px solid #333; padding-bottom: 10px; }
         .content-section p, .content-section ul { color: var(--text-secondary); margin-bottom: 20px; font-size: 1.1rem; }
         .content-section ul { padding-left: 20px; }
@@ -43,10 +58,21 @@
         .grid-image { width: 100%; border-radius: 12px; border: 1px solid #333; background-color: #000; }
         
         /* SECTION VIDÉO */
-        .video-container { width: 100%; border-radius: 18px; overflow: hidden; margin-bottom: 40px; border: 1px solid #333; background: #111;}
+        .video-container { 
+            width: 100%; 
+            border-radius: 18px; 
+            overflow: hidden; 
+            margin-bottom: 40px; 
+            border: 1px solid #333; 
+            background: #111;
+            /* L'image principale s'ancre au centre de l'écran */
+            scroll-snap-align: center;
+        }
         .video-container video, .video-container img { width: 100%; display: block; object-fit: cover;}
 
+        /* DESACTIVATION DU SNAPPING SUR MOBILE (Pour garder une lecture fluide du texte long) */
         @media (max-width: 768px) {
+            html { scroll-snap-type: none; }
             .grid-half { grid-template-columns: 1fr; }
             .project-header h1 { font-size: 2rem; }
             .content-section { padding: 20px; }
@@ -136,14 +162,14 @@
             <div class="grid-half">
                 <div>
                     <h3 style="text-align: center; margin-bottom: 15px; color: var(--text-secondary); font-size: 1.2rem;">Avant : Taux d'échec élevé</h3>
-                    <div class="video-container">
+                    <div class="video-container" style="margin-bottom: 0;">
                         <video src="Videos/forvia-avant.mov" controls autoplay loop muted playsinline style="border-radius: 12px;"></video>
                     </div>
                 </div>
                 
                 <div>
                     <h3 style="text-align: center; margin-bottom: 15px; color: var(--accent-color); font-size: 1.2rem;">Après : Opération fiabilisée</h3>
-                    <div class="video-container">
+                    <div class="video-container" style="margin-bottom: 0;">
                         <video src="Videos/forvia-apres.mov" controls autoplay loop muted playsinline style="border-radius: 12px;"></video>
                     </div>
                 </div>
@@ -158,8 +184,8 @@
                     <p>Pour cette initiative d'ingénierie combinant reconception mécanique astucieuse et validation IoT, le projet a été récompensé par la direction de l'usine avec le prix de <strong>"L'Idée d'Amélioration du Mois"</strong>.</p>
                 </div>
                 <div>
-                    <img src="Photos/forvia-graph-resultats.jpg" alt="Graphique de la chute des erreurs" class="grid-image" style="margin-bottom: 20px;">
-                    <img src="Photos/forvia-prix.png" alt="Remise du prix de la meilleure idée d'amélioration" class="grid-image">
+                    <img src="Photos/forvia-graph-resultats.png" alt="Graphique de la chute des erreurs" class="grid-image" style="margin-bottom: 20px;">
+                    <img src="Photos/forvia-prix.jpg" alt="Remise du prix de la meilleure idée d'amélioration" class="grid-image">
                 </div>
             </div>
         </div>
@@ -167,7 +193,7 @@
         <div class="content-section" style="background: transparent; border: 1px solid #333;">
             <h2 style="border: none; text-align: center;">Annexe : Mise en plan technique</h2>
             <p style="text-align: center;">Vues détaillées et cotations du nouveau doigt de préhension usiné en acier.</p>
-            <img src="Photos/forvia-plan.png" alt="Mise en plan technique du doigt Forvia" class="grid-image" style="margin-top: 30px; background-color: #fff; padding: 10px;">
+            <img src="Photos/forvia-plan.jpg" alt="Mise en plan technique du doigt Forvia" class="grid-image" style="margin-top: 30px; background-color: #fff; padding: 10px;">
         </div>
 
     </div>

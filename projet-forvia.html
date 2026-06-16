@@ -1,1 +1,127 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Projet Forvia | Maxime Demesy</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+    
+    <style>
+        /* DESIGN SYSTEM - APPLE DARK MODE STYLE */
+        :root {
+            --bg-color: #000000;
+            --surface-color: #1c1c1e;
+            --text-primary: #f5f5f7;
+            --text-secondary: #86868b;
+            --accent-color: #2997ff;
+            --accent-hover: #147ce5;
+        }
 
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Inter', sans-serif; }
+        body { background-color: var(--bg-color); color: var(--text-primary); line-height: 1.6; }
+        
+        .container { max-width: 1000px; margin: 0 auto; padding: 0 20px; }
+        
+        /* BOUTON RETOUR */
+        .nav-bar { padding: 40px 0; }
+        .back-link { color: var(--accent-color); text-decoration: none; font-weight: 600; display: inline-flex; align-items: center; gap: 8px;}
+        .back-link:hover { text-decoration: underline; }
+
+        /* HEADER DU PROJET */
+        .project-header { margin-bottom: 60px; text-align: center; }
+        .project-header h1 { font-size: 3rem; margin-bottom: 10px; }
+        .project-tags { color: var(--accent-color); font-weight: 600; text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 20px; display: block;}
+
+        /* SECTIONS DE CONTENU */
+        .content-section { background-color: var(--surface-color); padding: 40px; border-radius: 18px; margin-bottom: 40px; }
+        .content-section h2 { margin-bottom: 20px; font-size: 1.8rem; border-bottom: 1px solid #333; padding-bottom: 10px; }
+        .content-section p, .content-section ul { color: var(--text-secondary); margin-bottom: 20px; font-size: 1.1rem; }
+        .content-section ul { padding-left: 20px; }
+
+        /* GRILLE POUR TEXTE ET IMAGES/CALCULS */
+        .grid-half { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; align-items: center; }
+        .grid-image { width: 100%; border-radius: 12px; border: 1px solid #333; background-color: #000; }
+        
+        /* SECTION VIDÉO */
+        .video-container { width: 100%; border-radius: 18px; overflow: hidden; margin-bottom: 40px; border: 1px solid #333; background: #111;}
+        .video-container video, .video-container img { width: 100%; display: block; object-fit: cover;}
+
+        @media (max-width: 768px) {
+            .grid-half { grid-template-columns: 1fr; }
+            .project-header h1 { font-size: 2rem; }
+            .content-section { padding: 20px; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <!-- NAVIGATION -->
+        <div class="nav-bar">
+            <a href="index.html" class="back-link">← Retour au portfolio</a>
+        </div>
+
+        <!-- EN-TÊTE -->
+        <div class="project-header">
+            <span class="project-tags">Forvia (Faurecia) | Industrie 4.0 | Mécanique & IoT</span>
+            <h1>Smart Gripper & Fiabilisation Robotique</h1>
+        </div>
+
+        <!-- IMAGE HERO (Photo du robot EX-1402) -->
+        <div class="video-container">
+            <img src="forvia-robot.jpg" alt="Robot 6 axes Forvia AUTOCLIP">
+        </div>
+
+        <!-- LE DÉFI INDUSTRIEL -->
+        <div class="content-section">
+            <h2>1. Le Challenge : Fiabilisation à haute cadence</h2>
+            <div class="grid-half">
+                <div>
+                    <p>Sur le site de Forvia Étupes, la machine "AUTOCLIP", équipée d'un bras robotisé 6 axes, est chargée de l'assemblage de panneaux de portes[cite: 3]. Le processus souffrait d'un taux d'échec critique lors de l'insertion des agrafes plastiques.</p>
+                    <p>La première phase a consisté à réaliser une cartographie statistique complète des erreurs (agrafes "mal engagées" ou "absentes") en fonction de leur position sur le panneau (PAVD/PAVG), tout en mesurant les efforts d'engagement nécessaires (entre 14N et 21N)[cite: 3].</p>
+                </div>
+                <div>
+                    <!-- Remplace par la capture du tableau excel ou du diagramme Ishikawa -->
+                    <img src="forvia-stats.jpg" alt="Analyse statistique des erreurs d'agrafage" class="grid-image">
+                </div>
+            </div>
+        </div>
+
+        <!-- LA CONCEPTION MÉCANIQUE -->
+        <div class="content-section">
+            <h2>2. Conception du "Doigt Absorbant"</h2>
+            <div class="grid-half">
+                <div>
+                    <!-- Remplace par la photo comparative des deux doigts usinés ou du modèle Creo -->
+                    <img src="forvia-doigts.jpg" alt="Conception PTC Creo du nouveau doigt de préhension" class="grid-image">
+                </div>
+                <div>
+                    <p>Plutôt que de recalibrer continuellement la trajectoire du robot, j'ai repensé la mécanique de l'effecteur. Sous <strong>Pro/ENGINEER (PTC Creo)</strong>, j'ai modélisé un nouveau "doigt de préhension"[cite: 3].</p>
+                    <p>L'innovation réside dans l'usinage d'un chanfrein intérieur spécifique en acier. Cette forme en entonnoir permet de guider mécaniquement l'agrafe et d'absorber physiquement les micro-erreurs de positionnement[cite: 3].</p>
+                    <ul>
+                        <li><strong>Résultat industriel :</strong> Lors d'un test "run" d'une heure, le prototype a affiché <strong>100% de réussite</strong> (agrafes présentes et engagées) sur l'agrafe la plus critique[cite: 3].</li>
+                        <li><strong>Déploiement :</strong> La direction a validé la généralisation de cette solution avec le déploiement de 5 doigts sur les stations[cite: 3].</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- LA PREUVE DE CONCEPT IoT -->
+        <div class="content-section">
+            <h2>3. Intelligence Embarquée : Détection du "Clic"</h2>
+            <div class="grid-half">
+                <div>
+                    <p>Les systèmes de vision traditionnels (caméras Cognex) atteignent leurs limites dans ces environnements confinés[cite: 3]. J'ai développé une solution alternative IoT reposant sur l'analyse dynamique du signal.</p>
+                    <p>En utilisant des <strong>Arduino Nano</strong> communiquant via des modules radio <strong>NRF24L01+</strong>, le système est capable d'identifier l'onde de choc (pic d'accélération en mm/s²) générée par le "clic" mécanique lors du verrouillage de l'agrafe[cite: 3]. Cette solution permet une validation binaire et immédiate de l'opération.</p>
+                </div>
+                <div>
+                    <!-- Remplace par le schéma de montage Arduino ou le graphique de la courbe d'accélération -->
+                    <img src="forvia-arduino.jpg" alt="Schéma Arduino NRF24L01+ et graphique d'accélération" class="grid-image">
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+</body>
+</html>

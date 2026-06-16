@@ -29,13 +29,22 @@
         
         .container { max-width: 1000px; margin: 0 auto; padding: 0 20px; }
         
-        /* BOUTON RETOUR */
-        .nav-bar { padding: 40px 0; scroll-snap-align: start; }
+        /* BOUTON RETOUR (MENU STICKY AVEC EFFET VERRE) */
+        .nav-bar { 
+            position: sticky;
+            top: 0;
+            padding: 20px 0;
+            margin-bottom: 20px;
+            background-color: rgba(0, 0, 0, 0.7);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            z-index: 1000;
+        }
         .back-link { color: var(--accent-color); text-decoration: none; font-weight: 600; display: inline-flex; align-items: center; gap: 8px;}
         .back-link:hover { text-decoration: underline; }
 
         /* HEADER DU PROJET */
-        .project-header { margin-bottom: 60px; text-align: center; scroll-snap-align: start; scroll-margin-top: 40px; }
+        .project-header { margin-bottom: 60px; text-align: center; scroll-snap-align: start; scroll-margin-top: 100px; }
         .project-header h1 { font-size: 3rem; margin-bottom: 10px; }
         .project-tags { color: var(--accent-color); font-weight: 600; text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 20px; display: block;}
 
@@ -45,9 +54,8 @@
             padding: 40px; 
             border-radius: 18px; 
             margin-bottom: 40px; 
-            /* On ancre la section en haut de l'écran lors du défilement */
             scroll-snap-align: start; 
-            scroll-margin-top: 20px; 
+            scroll-margin-top: 100px; 
         }
         .content-section h2 { margin-bottom: 20px; font-size: 1.8rem; border-bottom: 1px solid #333; padding-bottom: 10px; }
         .content-section p, .content-section ul { color: var(--text-secondary); margin-bottom: 20px; font-size: 1.1rem; }
@@ -65,12 +73,11 @@
             margin-bottom: 40px; 
             border: 1px solid #333; 
             background: #111;
-            /* L'image principale s'ancre au centre de l'écran */
             scroll-snap-align: center;
         }
         .video-container video, .video-container img { width: 100%; display: block; object-fit: cover;}
 
-        /* DESACTIVATION DU SNAPPING SUR MOBILE (Pour garder une lecture fluide du texte long) */
+        /* DESACTIVATION DU SNAPPING SUR MOBILE */
         @media (max-width: 768px) {
             html { scroll-snap-type: none; }
             .grid-half { grid-template-columns: 1fr; }

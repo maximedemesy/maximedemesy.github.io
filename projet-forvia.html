@@ -109,12 +109,12 @@
             <h2>3. Intelligence Embarquée : Détection du "Clic"</h2>
             <div class="grid-half">
                 <div>
-                    <p>La machine travaillant "à l'aveugle", il fallait lui donner la capacité de vérifier elle-même son travail[cite: 3]. J'ai développé une solution IoT (Arduino Nano, module radio NRF24L01+ et MPU-6050) pour capter l'accélération caractéristique générée par le "clic" mécanique lors du verrouillage[cite: 3].</p>
-                    <p>L'algorithme permet au robot de réagir en temps réel[cite: 3] :</p>
+                    <p>La machine travaillant "à l'aveugle", il fallait lui donner la capacité de vérifier elle-même son travail. J'ai développé une solution IoT (Arduino Nano, module radio NRF24L01+ et MPU-6050) pour capter l'accélération caractéristique générée par le "clic" mécanique lors du verrouillage.</p>
+                    <p>L'algorithme permet au robot de réagir en temps réel :</p>
                     <ul>
-                        <li><strong>Accélération caractéristique :</strong> L'agrafe est validée[cite: 3].</li>
-                        <li><strong>Aucune accélération :</strong> L'agrafe est mal engagée. Le robot vérifie son capteur laser et recommence un cycle[cite: 3].</li>
-                        <li><strong>Accélération anormale :</strong> L'agrafe a sauté ou est mal positionnée. Le robot se retire pour éviter une collision[cite: 3].</li>
+                        <li><strong>Accélération caractéristique :</strong> L'agrafe est validée.</li>
+                        <li><strong>Aucune accélération :</strong> L'agrafe est mal engagée. Le robot vérifie son capteur laser et recommence un cycle.</li>
+                        <li><strong>Accélération anormale :</strong> L'agrafe a sauté ou est mal positionnée. Le robot se retire pour éviter une collision.</li>
                     </ul>
                 </div>
                 <div>
@@ -128,11 +128,11 @@
             <h2>4. Données, Autonomie et Capteur d'Usure</h2>
             <div class="grid-half">
                 <div>
-                    <p><strong>Traitement des données :</strong> Les mesures sont envoyées sans fil à un ordinateur et traitées sur Excel via la macro PLX-DAQ[cite: 3]. Une intégration d'algorithmes de Pattern Recognition (R-CNN, YOLO v2) sous MATLAB a été étudiée pour classifier les erreurs complexes[cite: 3].</p>
-                    <p><strong>Autonomie :</strong> Le système consommant 33.6 mA, j'ai conçu une alimentation sur-mesure utilisant deux batteries LiPo de 3.7V (250mAh) en série, garantissant plus de 3 heures d'autonomie pour les essais[cite: 3].</p>
+                    <p><strong>Traitement des données :</strong> Les mesures sont envoyées sans fil à un ordinateur et traitées sur Excel via la macro PLX-DAQ. Une intégration d'algorithmes de Pattern Recognition (R-CNN, YOLO v2) sous MATLAB a été étudiée pour classifier les erreurs complexes.</p>
+                    <p><strong>Autonomie :</strong> Le système consommant 33.6 mA, j'ai conçu une alimentation sur-mesure utilisant deux batteries LiPo de 3.7V (250mAh) en série, garantissant plus de 3 heures d'autonomie pour les essais.</p>
                 </div>
                 <div>
-                    <p><strong>Mesure d'usure :</strong> Pour valider l'impact mécanique des nouveaux doigts de préhension, j'ai ajouté un capteur résistif de pression à couche mince[cite: 3]. Intégré entre le vérin et la glissière avec une résistance de 10 kOhm, il permet de quantifier l'effort normal et d'anticiper l'usure de la machine[cite: 3].</p>
+                    <p><strong>Mesure d'usure :</strong> Pour valider l'impact mécanique des nouveaux doigts de préhension, j'ai ajouté un capteur résistif de pression à couche mince. Intégré entre le vérin et la glissière avec une résistance de 10 kOhm, il permet de quantifier l'effort normal et d'anticiper l'usure de la machine.</p>
                 </div>
             </div>
         </div>

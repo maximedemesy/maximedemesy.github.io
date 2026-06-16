@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Projet Boîtier Anti-Vol ST | Maxime Demesy</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+    
+    <style>
+        /* DESIGN SYSTEM - APPLE DARK MODE STYLE */
+        :root {
+            --bg-color: #000000;
+            --surface-color: #1c1c1e;
+            --text-primary: #f5f5f7;
+            --text-secondary: #86868b;
+            --accent-color: #2997ff;
+            --accent-hover: #147ce5;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Inter', sans-serif; }
+        
+        /* EFFET DE DEFILEMENT PAR A-COUP (SCROLL SNAPPING) */
+        html { 
+            scroll-snap-type: y mandatory; 
+            scroll-behavior: smooth; 
+        }
+
+        body { background-color: var(--bg-color); color: var(--text-primary); line-height: 1.6; }
+        
+        .container { max-width: 1000px; margin: 0 auto; padding: 0 20px; }
+        
+        /* BOUTON RETOUR (MENU STICKY AVEC EFFET VERRE) */
+        .nav-bar { 
+            position: sticky;
+            top: 0;
+            padding: 20px 0;
+            margin-bottom: 20px;
+            background-color: rgba(0, 0, 0, 0.7);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            z-index: 1000;
+        }
+        .back-link { color: var(--accent-color); text-decoration: none; font-weight: 600; display: inline-flex; align-items: center; gap: 8px;}
+        .back-link:hover { text-decoration: underline; }
+
+        /* HEADER DU PROJET */
+        .project-header { margin-bottom: 60px; text-align: center; scroll-snap-align: start; scroll-margin-top: 100px; }
+        .project-header h1 { font-size: 3rem; margin-bottom: 10px; }
+        .project-tags { color: var(--accent-color); font-weight: 600; text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 20px; display: block;}
+
+        /* SECTIONS DE CONTENU */
+        .content-section { 
+            background-color: var(--surface-color); 
+            padding: 40px; 
+            border-radius: 18px; 
+            margin-bottom: 40px; 
+            scroll-snap-align: start; 
+            scroll-margin-top: 100px; 
+        }
+        .content-section h2 { margin-bottom: 20px; font-size: 1.8rem; border-bottom: 1px solid #333; padding-bottom: 10px; }
+        .content-section p, .content-section ul { color: var(--text-secondary); margin-bottom: 20px; font-size: 1.1rem; }
+        .content-section ul { padding-left: 20px; }
+        .content-section li { margin-bottom: 8px; }
+
+        /* GRILLE POUR TEXTE ET IMAGES/CALCULS */
+        .grid-half { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; align-items: center; }
+        .grid-image { width: 100%; border-radius: 12px; border: 1px solid #333; background-color: #000; }
+        
+        /* SECTION VIDÉO PRINCIPALE */
+        .video-container { 
+            width: 100%; 
+            border-radius: 18px; 
+            overflow: hidden; 
+            margin-bottom: 40px; 
+            border: 1px solid #333; 
+            background: #111;
+            scroll-snap-align: center;
+        }
+        .video-container video, .video-container img { width: 100%; display: block; object-fit: cover;}
+
+        /* DESACTIVATION DU SNAPPING SUR MOBILE */
+        @media (max-width: 768px) {
+            html { scroll-snap-type: none; }
+            .grid-half { grid-template-columns: 1fr; }
+            .project-header h1 { font-size: 2rem; }
+            .content-section { padding: 20px; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <div class="nav-bar">
+            <a href="index.html" class="back-link">← Retour au portfolio</a>
+        </div>
+
+        <div class="project-header">
+            <span class="project-tags">STMicroelectronics | IoT & Systèmes Embarqués | LoRaWAN</span>
+            <h1>Dispositif Autonome Anti-Vol de Câbles</h1>
+        </div>
+
+        <div class="video-container">
+            <img src="Photos/st-hero.jpg" alt="Dispositif STMicroelectronics">
+        </div>
+
+        <div class="content-section">
+            <h2>1. Le Challenge : Sécuriser les réseaux électriques</h2>
+            <div class="grid-half">
+                <div>
+                    <p>Le vol de câbles électriques, notamment en cuivre, représente un problème opérationnel et financier majeur pour des entreprises d'infrastructures comme la SNCF ou Enedis.</p>
+                    <p>Dans le cadre de l'option CROC, en partenariat avec STMicroelectronics, l'objectif était de concevoir un dispositif de surveillance capable de répondre à des contraintes extrêmes : il devait être <strong>totalement autonome en énergie</strong>, capable de détecter la coupure ou la chute d'un câble de manière fiable, et transmettre une alerte sans fil à un récepteur distant, le tout en résistant aux intempéries.</p>
+                </div>
+                <div>
+                    <img src="Photos/st-schema-bloc.jpg" alt="Architecture globale du système" class="grid-image" style="background-color: #fff; padding: 10px;">
+                </div>
+            </div>
+        </div>
+
+        <div class="content-section">
+            <h2>2. Architecture Électronique & Détection</h2>
+            <div class="grid-half">
+                <div>
+                    <img src="Photos/st-capteurs.jpg" alt="Capteurs STMicroelectronics LIS2DU12 et LIS2MDL" class="grid-image">
+                </div>
+                <div>
+                    <p>Le cœur du système repose sur un microcontrôleur <strong>STM32 Nucleo WL55JC1</strong>, intégrant nativement la communication longue portée LoRaWAN. L'intelligence du boîtier repose sur une machine à états finis couplée à deux capteurs clés :</p>
+                    <ul>
+                        <li><strong>Le réveil (Accéléromètre LIS2DU12) :</strong> Ce capteur ultra-basse consommation détecte les chocs ou la chute du câble. Il génère une interruption matérielle (sur la broche EXTI6) qui sort le microcontrôleur de son sommeil profond.</li>
+                        <li><strong>L'évaluation (Magnétomètre LIS2MDL) :</strong> Une fois réveillé, le système mesure le champ magnétique sur 3 axes (10 mesures sur 100ms) pour vérifier si le courant circule toujours dans le câble (mesure indirecte).</li>
+                    </ul>
+                    <p>Si la variation du champ magnétique confirme la coupure, un message LoRa encodant la cause de l'alarme et l'état de la batterie est transmis.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="content-section">
+            <h2>3. Conception Mécanique & Étanchéité</h2>
+            <div class="grid-half">
+                <div>
+                    <p>Concevoir un boîtier pour l'IoT extérieur impose des défis contradictoires : il doit être robuste, mais laisser passer les ondes et la lumière.</p>
+                    <ul>
+                        <li><strong>La cage de Faraday :</strong> Un boîtier 100% métallique protégerait l'électronique mais bloquerait la transmission LoRaWAN. Nous avons opté pour un corps usiné en métal couplé à une plaque supérieure en plexiglas.</li>
+                        <li><strong>Énergie solaire :</strong> Cette plaque transparente permet d'alimenter le panneau solaire interne tout en protégeant les composants des rayons UV destructeurs.</li>
+                        <li><strong>Fixation & Étanchéité :</strong> L'interface avec le câble est assurée par des mâchoires imprimées en 3D en <strong>ASA</strong> (un polymère résistant aux UV et aux intempéries). L'étanchéité globale est garantie par des joints toriques, et du gel de silice est intégré pour gérer la condensation interne.</li>
+                    </ul>
+                </div>
+                <div>
+                    <img src="Photos/st-boitier.jpg" alt="Conception CAO du boîtier étanche" class="grid-image">
+                </div>
+            </div>
+        </div>
+
+        <div class="content-section">
+            <h2>4. Gestion de l'Énergie (Energy Harvesting)</h2>
+            <div class="grid-half">
+                <div>
+                    <img src="Photos/st-energie.png" alt="Analyse de la consommation énergétique" class="grid-image" style="background-color: #fff; padding: 10px;">
+                </div>
+                <div>
+                    <p>L'autonomie totale était la contrainte principale. Nous avons utilisé la carte de récupération d'énergie <strong>STEVAL-HARVEST1</strong> (panneau solaire couplé à des supercondensateurs).</p>
+                    <p>Le logiciel embarqué (basé sur le package LoRaWAN END NODE de ST) gère l'énergie de manière automatique en endormant les composants non critiques. J'ai utilisé l'outil <strong>STLink-V3PWR</strong> pour profiler précisément la consommation du microcontrôleur lors des phases de sommeil, de mesure et de transmission radio, afin d'optimiser le code et garantir la pérennité du dispositif sur le terrain.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="content-section">
+            <h2>5. Résultats & Perspectives</h2>
+            <div class="grid-half">
+                <div>
+                    <p>Le prototype final a passé avec succès les tests de validation : le boîtier est étanche, résiste aux chocs, détecte la chute du câble et la coupure de courant par magnétométrie de manière indirecte, et transmet l'alerte via le réseau LoRaWAN de manière autonome.</p>
+                    <p><strong>Perspectives industrielles :</strong> Bien que fonctionnel, l'optimisation de la consommation en veille (actuellement à 2,8 mA) reste un axe d'amélioration, avec pour objectif d'atteindre quelques centaines de microampères. Le passage d'une carte d'évaluation (Nucleo) à un PCB de production sur-mesure permettra de réduire drastiquement l'encombrement final.</p>
+                </div>
+                <div>
+                    <img src="Photos/st-resultat.jpg" alt="Prototype final et équipe" class="grid-image">
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+</body>
+</html>

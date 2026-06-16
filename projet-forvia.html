@@ -69,7 +69,7 @@
 
         <!-- IMAGE HERO (Photo du robot EX-1402) -->
         <div class="video-container">
-            <img src="forvia-robot.jpg" alt="Robot 6 axes Forvia AUTOCLIP">
+            <img src="Photos/forvia-robot.jpg" alt="Robot 6 axes Forvia AUTOCLIP">
         </div>
 
         <!-- LE DÉFI INDUSTRIEL -->
@@ -77,46 +77,46 @@
             <h2>1. Le Challenge : Fiabilisation à haute cadence</h2>
             <div class="grid-half">
                 <div>
-                    <p>Sur le site de Forvia Étupes, la machine "AUTOCLIP", équipée d'un bras robotisé 6 axes, est chargée de l'assemblage de panneaux de portes[cite: 3]. Le processus souffrait d'un taux d'échec critique lors de l'insertion des agrafes plastiques.</p>
-                    <p>La première phase a consisté à réaliser une cartographie statistique complète des erreurs (agrafes "mal engagées" ou "absentes") en fonction de leur position sur le panneau (PAVD/PAVG), tout en mesurant les efforts d'engagement nécessaires (entre 14N et 21N)[cite: 3].</p>
+                    <p>Sur le site de Forvia Étupes, la machine "AUTOCLIP", équipée d'un bras robotisé 6 axes, est chargée de l'assemblage de panneaux de portes. Le processus souffrait d'un taux d'échec critique lors de l'insertion des agrafes plastiques.</p>
+                    <p>La première phase a consisté à réaliser une cartographie statistique complète des erreurs (agrafes "mal engagées" ou "absentes") en fonction de leur position sur le panneau (PAVD/PAVG), tout en mesurant les efforts d'engagement nécessaires (entre 14N et 21N).</p>
                 </div>
                 <div>
-                    <!-- Remplace par la capture du tableau excel ou du diagramme Ishikawa -->
-                    <img src="forvia-stats.jpg" alt="Analyse statistique des erreurs d'agrafage" class="grid-image">
+                    
+                    <img src="Photos/forvia-stats.jpg" alt="Analyse statistique des erreurs d'agrafage" class="grid-image">
                 </div>
             </div>
         </div>
 
-        <!-- LA CONCEPTION MÉCANIQUE -->
+        
         <div class="content-section">
-            <h2>2. Conception du "Doigt Absorbant"</h2>
+            <h2>2. Conception du nouveau doigt</h2>
             <div class="grid-half">
                 <div>
-                    <!-- Remplace par la photo comparative des deux doigts usinés ou du modèle Creo -->
-                    <img src="forvia-doigts.jpg" alt="Conception PTC Creo du nouveau doigt de préhension" class="grid-image">
+                    
+                    <img src="Photos/forvia-doigts.jpg" alt="Conception PTC Creo du nouveau doigt de préhension" class="grid-image">
                 </div>
                 <div>
-                    <p>Plutôt que de recalibrer continuellement la trajectoire du robot, j'ai repensé la mécanique de l'effecteur. Sous <strong>Pro/ENGINEER (PTC Creo)</strong>, j'ai modélisé un nouveau "doigt de préhension"[cite: 3].</p>
-                    <p>L'innovation réside dans l'usinage d'un chanfrein intérieur spécifique en acier. Cette forme en entonnoir permet de guider mécaniquement l'agrafe et d'absorber physiquement les micro-erreurs de positionnement[cite: 3].</p>
+                    <p>Plutôt que de recalibrer continuellement la trajectoire du robot, j'ai repensé la mécanique de l'effecteur. Sous <strong>Pro/ENGINEER (PTC Creo)</strong>, j'ai modélisé un nouveau "doigt de préhension".</p>
+                    <p>L'innovation réside dans l'usinage d'un chanfrein intérieur spécifique en acier. Cette forme en entonnoir permet de guider mécaniquement l'agrafe et d'absorber physiquement les micro-erreurs de positionnement. Le nouveau doigt recouvre également mieux l'agraffe et peut donc encaisser plus d'efforts avant que celle-ci ne lui échappe.</p>
                     <ul>
-                        <li><strong>Résultat industriel :</strong> Lors d'un test "run" d'une heure, le prototype a affiché <strong>100% de réussite</strong> (agrafes présentes et engagées) sur l'agrafe la plus critique[cite: 3].</li>
-                        <li><strong>Déploiement :</strong> La direction a validé la généralisation de cette solution avec le déploiement de 5 doigts sur les stations[cite: 3].</li>
+                        <li><strong>Résultat industriel :</strong> Lors d'un test "run" d'une heure, le prototype a affiché <strong>100% de réussite</strong> (agrafes présentes et engagées) sur l'agrafe la plus critique.</li>
+                        <li><strong>Déploiement :</strong> La direction a validé la généralisation de cette solution avec le déploiement de 5 doigts sur les stations.</li>
                     </ul>
                 </div>
             </div>
         </div>
 
-        <!-- LA PREUVE DE CONCEPT IoT -->
+        
         <div class="content-section">
             <h2>3. Intelligence Embarquée : Détection du "Clic"</h2>
             <div class="grid-half">
                 <div>
-                    <p>Les systèmes de vision traditionnels (caméras Cognex) atteignent leurs limites dans ces environnements confinés[cite: 3]. J'ai développé une solution alternative IoT reposant sur l'analyse dynamique du signal.</p>
-                    <p>En utilisant des <strong>Arduino Nano</strong> communiquant via des modules radio <strong>NRF24L01+</strong>, le système est capable d'identifier l'onde de choc (pic d'accélération en mm/s²) générée par le "clic" mécanique lors du verrouillage de l'agrafe[cite: 3]. Cette solution permet une validation binaire et immédiate de l'opération.</p>
+                    <p>Les systèmes de vision traditionnels (caméras Cognex) atteignent leurs limites dans ces environnements confinés. J'ai développé une solution alternative IoT reposant sur l'analyse dynamique du signal d'accéleration du robot.</p>
+                    <p>En utilisant des <strong>Arduino Nano</strong> communiquant via des modules radio <strong>NRF24L01+</strong>, le système est capable d'identifier le pic d'accélération en mm/s² généré par le "clic" mécanique lors du verrouillage de l'agrafe. Cette solution permet une validation binaire et immédiate de l'opération.</p>
                 </div>
                 <div>
-                    <!-- Remplace par le schéma de montage Arduino ou le graphique de la courbe d'accélération -->
-                    <img src="forvia-arduino.jpg" alt="Schéma Arduino NRF24L01+ et graphique d'accélération" class="grid-image">
+                    
+                    <img src="Photos/forvia-arduino.jpg" alt="Schéma Arduino NRF24L01+ et graphique d'accélération" class="grid-image">
                 </div>
             </div>
         </div>

@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Projet TraceBot CEA | Maxime Demesy</title>
+    <link rel="icon" type="image/png" href="Photos/favicon.png">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
     
     <style>
@@ -18,18 +19,12 @@
         }
 
         * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Inter', sans-serif; }
-        
-        /* EFFET DE DEFILEMENT PAR A-COUP (SCROLL SNAPPING) */
-        html { 
-            scroll-snap-type: y mandatory; 
-            scroll-behavior: smooth; 
-        }
 
         body { background-color: var(--bg-color); color: var(--text-primary); line-height: 1.6; }
         
-        .container { max-width: 1000px; margin: 0 auto; padding: 0 20px; }
+        .container { max-width: 1000px; margin: 0 auto; padding: 0 20px; min-height: 100vh; display: flex; flex-direction: column;}
         
-        /* BOUTON RETOUR (MENU STICKY AVEC EFFET VERRE) */
+        /* BOUTON RETOUR (MENU STICKY) */
         .nav-bar { 
             position: sticky;
             top: 0;
@@ -44,140 +39,113 @@
         .back-link:hover { text-decoration: underline; }
 
         /* HEADER DU PROJET */
-        .project-header { margin-bottom: 60px; text-align: center; scroll-snap-align: start; scroll-margin-top: 100px; }
+        .project-header { margin-bottom: 40px; text-align: center; }
         .project-header h1 { font-size: 3rem; margin-bottom: 10px; }
         .project-tags { color: var(--accent-color); font-weight: 600; text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 20px; display: block;}
 
-        /* SECTIONS DE CONTENU */
-        .content-section { 
+        /* SECTION CONFIDENTIEL */
+        .nda-section { 
             background-color: var(--surface-color); 
-            padding: 40px; 
+            padding: 60px 40px; 
             border-radius: 18px; 
-            margin-bottom: 40px; 
-            scroll-snap-align: start; 
-            scroll-margin-top: 100px; /* Marge augmentée pour ne pas passer sous la barre fixe */
+            text-align: center;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            margin-bottom: 60px;
+            border: 1px solid rgba(255, 255, 255, 0.05);
         }
-        .content-section h2 { margin-bottom: 20px; font-size: 1.8rem; border-bottom: 1px solid #333; padding-bottom: 10px; }
-        .content-section p, .content-section ul { color: var(--text-secondary); margin-bottom: 20px; font-size: 1.1rem; }
-        .content-section ul { padding-left: 20px; }
-        .content-section li { margin-bottom: 8px; }
 
-        /* GRILLE POUR TEXTE ET IMAGES/CALCULS */
-        .grid-half { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; align-items: center; }
-        .grid-image { width: 100%; border-radius: 12px; border: 1px solid #333; background-color: #000; }
+        .nda-section h2 { margin-bottom: 20px; font-size: 2rem; color: var(--text-primary); }
+        .nda-section p { color: var(--text-secondary); margin-bottom: 15px; font-size: 1.1rem; max-width: 650px; }
+
+        /* ICÔNE BOUCLIER */
+        .nda-icon {
+            margin-bottom: 30px;
+            color: var(--accent-color);
+        }
+
+        /* BOUTONS */
+        .btn-container {
+            margin-top: 40px;
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .btn {
+            display: inline-block;
+            background-color: var(--accent-color);
+            color: white;
+            padding: 12px 24px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: background 0.3s ease;
+        }
+
+        .btn:hover { background-color: var(--accent-hover); }
         
-        /* SECTION VIDÉO PRINCIPALE */
-        .video-container { 
-            width: 100%; 
-            border-radius: 18px; 
-            overflow: hidden; 
-            margin-bottom: 40px; 
-            border: 1px solid #333; 
-            background: #111;
-            scroll-snap-align: center;
+        .btn-outline {
+            background-color: transparent;
+            border: 1px solid var(--text-secondary);
+            color: var(--text-primary);
         }
-        .video-container video, .video-container img { width: 100%; display: block; object-fit: cover;}
+        
+        .btn-outline:hover {
+            background-color: rgba(255, 255, 255, 0.1);
+            border-color: var(--text-primary);
+        }
 
-        /* DESACTIVATION DU SNAPPING SUR MOBILE */
         @media (max-width: 768px) {
-            html { scroll-snap-type: none; }
-            .grid-half { grid-template-columns: 1fr; }
             .project-header h1 { font-size: 2rem; }
-            .content-section { padding: 20px; }
+            .nda-section { padding: 40px 20px; }
+            .btn-container { flex-direction: column; width: 100%; }
+            .btn { width: 100%; text-align: center; }
         }
     </style>
 </head>
 <body>
 
     <div class="container">
+        <!-- NAVIGATION FIXE -->
         <div class="nav-bar">
             <a href="index.html" class="back-link">← Retour au portfolio</a>
         </div>
 
         <div class="project-header">
-            <span class="project-tags">CEA Paris-Saclay | Soft-Robotic | Fabrication Additive</span>
-            <h1>Préhenseur TraceBot & Mécanismes Compliants</h1>
+            <span class="project-tags">CEA Paris-Saclay | Soft-Robotic & Actionnement par câble</span>
+            <h1>Préhenseur TraceBot</h1>
         </div>
 
-        <div class="video-container">
-            <img src="Photos/cea-hero.jpg" alt="Doigt robotique TraceBot CEA">
-        </div>
-
-        <div class="content-section">
-            <h2>1. Le Challenge : La Transparence Mécanique</h2>
-            <div class="grid-half">
-                <div>
-                    <p>Dans le cadre du projet européen TraceBot, l'objectif principal était de reconcevoir un doigt robotique actionné par câble en exploitant les nouveaux procédés d'impression 3D. Le but : alléger le système, réduire le nombre de pièces et simplifier l'assemblage.</p>
-                    <p>La contrainte majeure était de conserver une <strong>"transparence mécanique"</strong> parfaite. En robotique, cela signifie piloter le système en boucle ouverte (sans capteurs d'efforts externes) tout en étant capable de "lire" les efforts extérieurs subis par le doigt directement via le moteur. Cela exige une réduction drastique des frottements, des jeux d'assemblage et de l'inertie.</p>
-                </div>
-                <div>
-                    <img src="Photos/cea-cinematique.png" alt="Schéma cinématique et actionnement par câble" class="grid-image" style="background-color: #fff; padding: 10px;">
-                </div>
-            </div>
-        </div>
-
-        <div class="content-section">
-            <h2>2. L'Innovation : Les Mécanismes Compliants</h2>
-            <div class="grid-half">
-                <div>
-                    <img src="Photos/cea-compliant.png" alt="Articulation compliante en TPU" class="grid-image">
-                </div>
-                <div>
-                    <p>Pour éliminer les frottements et les jeux inhérents aux roulements et aux axes traditionnels, j'ai pris la décision de supprimer les liaisons pivots classiques pour les remplacer par des <strong>mécanismes compliants</strong> (soft-robotic).</p>
-                    <p>Imprimées en TPU souple, ces zones amincies se comportent comme des pseudo-liaisons pivots. Cette solution apporte un double avantage :</p>
-                    <ul>
-                        <li><strong>Fabrication monobloc :</strong> Assemblage simplifié et chute du poids.</li>
-                        <li><strong>Rappel élastique naturel :</strong> Les câbles ne servent qu'à piloter la fermeture (flexion) des phalanges. Le retour en position ouverte est géré passivement par l'élasticité du TPU, supprimant ainsi la nécessité d'un système complexe de précharge des câbles.</li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-
-        <div class="content-section">
-            <h2>3. Intelligence Matière : Structure Gyroïde</h2>
-            <div class="grid-half">
-                <div>
-                    <p>La dernière phalange (qui est cinématiquement sous-actionnée par la seconde avec un rapport de 2/3) doit pouvoir épouser la forme des objets saisis sans nécessiter un contrôle actif complexe.</p>
-                    <p>Pour optimiser ce "grip", j'ai intégré directement dans la masse du doigt une structure en <em>Lattice</em> basée sur une équation mathématique minimale : <strong>le Gyroïde</strong>.</p>
-                    <p>La particularité topologique de cette structure, une fois imprimée en 3D (SLS), est d'être <strong>quasi-isotrope</strong>. Elle se déforme de manière parfaitement homogène peu importe la direction de l'effort qui lui est appliqué, agissant comme une mousse adaptative intelligente à la densité contrôlée.</p>
-                </div>
-                <div>
-                    <img src="Photos/cea-gyroide.png" alt="Structure Gyroïde imprimée en 3D" class="grid-image">
-                </div>
-            </div>
-        </div>
-
-        <div class="content-section">
-            <h2>4. Transmission & Validation par Banc d'Essai</h2>
-            <div class="grid-half">
-                <div>
-                    <p>Afin de valider la viabilité industrielle de ces articulations imprimées en TPU, j'ai conçu, usiné et programmé (en C++ sur Arduino) un banc d'essai dynamique. Ce système bielle-manivelle permettait d'imposer des flexions répétées tout en enregistrant les données sur la mémoire EEPROM pour éviter la perte de données lors d'essais longs.</p>
-                    <p><strong>Résultat :</strong> L'articulation compliante a validé avec succès plus de <strong>100 000 cycles de flexion</strong> sans rupture structurelle, prouvant la robustesse de cette solution pour une application robotique durable.</p>
-                </div>
-                <div>
-                    <img src="Photos/cea-banc-essai.jpg" alt="Banc d'essai dynamique de fatigue" class="grid-image">
-                </div>
-            </div>
-        </div>
-
-        <div class="content-section" style="background: transparent; padding: 0; border-top: 1px solid #333; padding-top: 40px; margin-bottom: 60px;">
-            <h2 style="text-align: center; margin-bottom: 40px; border: none;">Prototypage & Essais en mouvement</h2>
+        <!-- SECTION CONFIDENTIALITÉ -->
+        <div class="nda-section">
             
-            <div class="grid-half">
-                <div>
-                    <h3 style="text-align: center; margin-bottom: 15px; color: var(--accent-color); font-size: 1.2rem;">Essai de commande du doigt</h3>
-                    <div class="video-container" style="margin-bottom: 0;">
-                        <video src="Videos/cea-test.mp4" controls autoplay loop muted playsinline style="border-radius: 12px; width: 100%;"></video>
-                    </div>
-                </div>
-                
-                <div>
-                    <h3 style="text-align: center; margin-bottom: 15px; color: var(--accent-color); font-size: 1.2rem;">Actionnement du doigt à la main</h3>
-                    <div class="video-container" style="margin-bottom: 0;">
-                        <video src="Videos/cea-flexion.mp4" controls autoplay loop muted playsinline style="border-radius: 12px; width: 100%;"></video>
-                    </div>
-                </div>
+            <!-- ICÔNE BOUCLIER (SVG pur) -->
+            <div class="nda-icon">
+                <svg width="80" height="80" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+                </svg>
             </div>
+
+            <h2>Projet sous accord de confidentialité (NDA)</h2>
+            
+            <p>Les recherches et développements menés sur le préhenseur robotique du projet européen TraceBot sont soumis à des règles strictes de propriété intellectuelle par le CEA Paris-Saclay.</p>
+            
+            <p>Afin de respecter ces accords de non-divulgation, les modélisations CAO complètes, les détails des mécanismes compliants, les paramètres d'impression des structures Gyroïdes et les résultats chiffrés des bancs de fatigue ne peuvent être hébergés publiquement sur ce portfolio.</p>
+
+            <p>Je me tiens cependant à votre entière disposition pour échanger de vive voix sur ma méthodologie de conception, les défis d'ingénierie rencontrés (transparence mécanique, prototypage TPU) et les solutions apportées, dans la limite de ce que mon accord de confidentialité m'autorise à partager.</p>
+
+            <div class="btn-container">
+                <!-- Lien mailto avec un objet pré-rempli -->
+                <a href="mailto:maxime.demesy@gmail.com?subject=Demande d'informations - Projet TraceBot CEA" class="btn">Me contacter par e-mail</a>
+                <!-- Retourne directement sur la section projets de ta page d'accueil -->
+                <a href="index.html#projets" class="btn btn-outline">Découvrir mes autres projets</a>
+            </div>
+            
         </div>
 
     </div>

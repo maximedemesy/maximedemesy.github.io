@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Forvia Project | Maxime Demesy</title>
+    <link rel="icon" type="image/png" href="../Photos/favicon.png">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+    
+    <style>
+        /* DESIGN SYSTEM - APPLE DARK MODE STYLE */
+        :root {
+            --bg-color: #000000;
+            --surface-color: #1c1c1e;
+            --text-primary: #f5f5f7;
+            --text-secondary: #86868b;
+            --accent-color: #2997ff;
+            --accent-hover: #147ce5;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Inter', sans-serif; }
+        
+        /* SCROLL SNAPPING */
+        html { 
+            scroll-snap-type: y mandatory; 
+            scroll-behavior: smooth; 
+        }
+
+        body { background-color: var(--bg-color); color: var(--text-primary); line-height: 1.6; }
+        
+        .container { max-width: 1000px; margin: 0 auto; padding: 0 20px; }
+        
+        /* LANGUAGE TOGGLE */
+        .lang-toggle {
+            position: absolute;
+            top: 30px;
+            right: 40px;
+            display: flex;
+            gap: 12px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            z-index: 1001; /* Above nav-bar */
+            letter-spacing: 0.05em;
+        }
+        .lang-toggle a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+        .lang-toggle a.active {
+            color: var(--text-primary);
+        }
+        .lang-toggle a:hover {
+            color: var(--text-primary);
+        }
+        .lang-separator {
+            color: #333;
+        }
+
+        /* BACK BUTTON (STICKY BLUR NAV) */
+        .nav-bar { 
+            position: sticky;
+            top: 0;
+            padding: 20px 0;
+            margin-bottom: 20px;
+            background-color: rgba(0, 0, 0, 0.7);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            z-index: 1000;
+        }
+        .back-link { color: var(--accent-color); text-decoration: none; font-weight: 600; display: inline-flex; align-items: center; gap: 8px;}
+        .back-link:hover { text-decoration: underline; }
+
+        /* PROJECT HEADER */
+        .project-header { margin-bottom: 60px; text-align: center; scroll-snap-align: start; scroll-margin-top: 100px; }
+        .project-header h1 { font-size: 3rem; margin-bottom: 10px; }
+        .project-tags { color: var(--accent-color); font-weight: 600; text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 20px; display: block;}
+
+        /* CONTENT SECTIONS */
+        .content-section { 
+            background-color: var(--surface-color); 
+            padding: 40px; 
+            border-radius: 18px; 
+            margin-bottom: 40px; 
+            scroll-snap-align: start; 
+            scroll-margin-top: 100px; 
+        }
+        .content-section h2 { margin-bottom: 20px; font-size: 1.8rem; border-bottom: 1px solid #333; padding-bottom: 10px; }
+        .content-section p, .content-section ul { color: var(--text-secondary); margin-bottom: 20px; font-size: 1.1rem; }
+        .content-section ul { padding-left: 20px; }
+
+        /* GRID FOR TEXT/IMAGES */
+        .grid-half { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; align-items: center; }
+        .grid-image { width: 100%; border-radius: 12px; border: 1px solid #333; background-color: #000; }
+        
+        /* VIDEO SECTION */
+        .video-container { 
+            width: 100%; 
+            border-radius: 18px; 
+            overflow: hidden; 
+            margin-bottom: 40px; 
+            border: 1px solid #333; 
+            background: #111;
+            scroll-snap-align: center;
+        }
+        .video-container video, .video-container img { width: 100%; display: block; object-fit: cover;}
+
+        /* MOBILE RESPONSIVE */
+        @media (max-width: 768px) {
+            html { scroll-snap-type: none; }
+            .grid-half { grid-template-columns: 1fr; }
+            .project-header h1 { font-size: 2rem; }
+            .content-section { padding: 20px; }
+            .lang-toggle { top: 20px; right: 20px; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="lang-toggle">
+        <a href="../projet-forvia.html">FR</a>
+        <span class="lang-separator">|</span>
+        <a href="#" class="active">EN</a>
+    </div>
+
+    <div class="container">
+        <div class="nav-bar">
+            <a href="index.html" class="back-link">← Back to portfolio</a>
+        </div>
+
+        <div class="project-header">
+            <span class="project-tags">Forvia (Faurecia) | Industry 4.0 | Mechanics & IoT</span>
+            <h1>Smart Gripper & Robotics Reliability</h1>
+        </div>
+
+        <div class="video-container">
+            <img src="../Photos/forvia-robot.jpg" alt="Forvia AUTOCLIP 6-axis robot">
+        </div>
+
+        <div class="content-section">
+            <h2>1. The Challenge: High-Speed Reliability</h2>
+            <div class="grid-half">
+                <div>
+                    <p>At the Forvia Étupes plant, the "AUTOCLIP" machine, equipped with a 6-axis robotic arm, is responsible for assembling door panels. The process suffered from a critical failure rate when inserting plastic fasteners.</p>
+                    <p>The first phase consisted of performing a comprehensive statistical mapping of the errors ("misaligned" or "missing" fasteners) based on their position on the panel (Front Right/Front Left doors), while measuring the required insertion forces (between 14N and 21N).</p>
+                </div>
+                <div>
+                    <img src="../Photos/forvia-stats.png" alt="Statistical analysis of fastening errors" class="grid-image">
+                </div>
+            </div>
+        </div>
+
+        <div class="content-section">
+            <h2>2. Design of the New Finger</h2>
+            <div class="grid-half">
+                <div>
+                    <img src="../Photos/forvia-doigts.jpg" alt="PTC Creo design of the new gripper finger" class="grid-image">
+                </div>
+                <div>
+                    <p>Rather than continuously recalibrating the robot's trajectory, I redesigned the end-effector mechanics. Using <strong>Pro/ENGINEER (PTC Creo)</strong>, I modeled a new "gripper finger".</p>
+                    <p>The innovation lies in machining a specific internal steel chamfer. This funnel shape mechanically guides the fastener and physically absorbs micro-positioning errors (tolerance +/- 1mm). The new finger also covers the fastener better, allowing it to withstand higher forces before slipping.</p>
+                    <ul>
+                        <li><strong>Industrial Result:</strong> During a one-hour test run, the prototype achieved a <strong>100% success rate</strong> (fasteners present and engaged) on the most critical clip.</li>
+                        <li><strong>Deployment:</strong> Management approved the generalization of this solution, deploying 5 fingers across the workstations.</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="content-section">
+            <h2>3. Embedded Intelligence: "Click" Detection</h2>
+            <div class="grid-half">
+                <div>
+                    <p>Since the machine was working "blind", it needed the ability to verify its own work. I developed an IoT solution (Arduino Nano, NRF24L01+ radio module, and MPU-6050) to capture the characteristic acceleration generated by the mechanical "click" during locking.</p>
+                    <p>The algorithm allows the robot to react in real-time:</p>
+                    <ul>
+                        <li><strong>Characteristic acceleration:</strong> Fastener is validated.</li>
+                        <li><strong>No acceleration:</strong> Fastener is misaligned. The robot checks its laser sensor and restarts a cycle.</li>
+                        <li><strong>Abnormal acceleration:</strong> Fastener popped out or is badly positioned. The robot retracts to avoid a collision.</li>
+                    </ul>
+                </div>
+                <div>
+                    <img src="../Photos/forvia-arduino.jpg" alt="Arduino NRF24L01+ schematic and acceleration graph" class="grid-image">
+                </div>
+            </div>
+        </div>
+
+        <div class="content-section">
+            <h2>4. Data, Autonomy, and Wear Sensor</h2>
+            <div class="grid-half">
+                <div>
+                    <p><strong>Data Processing:</strong> Measurements are transmitted wirelessly to a computer and processed in Excel using the PLX-DAQ macro. The integration of Pattern Recognition algorithms (R-CNN, YOLO v2) in MATLAB was explored to classify complex errors.</p>
+                    <p><strong>Autonomy:</strong> With the system consuming 33.6 mA, I designed a custom power supply using two 3.7V LiPo batteries (250mAh) in series, guaranteeing over 3 hours of autonomy for testing.</p>
+                </div>
+                <div>
+                    <p><strong>Wear Measurement:</strong> To validate the mechanical impact of the new gripper fingers, I added a thin-film resistive pressure sensor. Integrated between the cylinder and the slide with a 10 kOhm resistor, it quantifies the normal force and helps anticipate machine wear.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="content-section" style="background: transparent; padding: 0; border-top: 1px solid #333; padding-top: 40px; margin-bottom: 60px;">
+            <h2 style="text-align: center; margin-bottom: 40px; border: none;">Real-world Demonstration</h2>
+            
+            <div class="grid-half">
+                <div>
+                    <h3 style="text-align: center; margin-bottom: 15px; color: var(--text-secondary); font-size: 1.2rem;">Before: High Failure Rate</h3>
+                    <div class="video-container" style="margin-bottom: 0;">
+                        <video src="../Videos/forvia-avant.mov" controls autoplay loop muted playsinline style="border-radius: 12px;"></video>
+                    </div>
+                </div>
+                
+                <div>
+                    <h3 style="text-align: center; margin-bottom: 15px; color: var(--accent-color); font-size: 1.2rem;">After: Reliable Operation</h3>
+                    <div class="video-container" style="margin-bottom: 0;">
+                        <video src="../Videos/forvia-apres.mov" controls autoplay loop muted playsinline style="border-radius: 12px;"></video>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="content-section">
+            <h2>5. Industrial Impact & Recognition</h2>
+            <div class="grid-half">
+                <div>
+                    <p>The implementation of this new system had an immediate impact on the production line. From the first real-world production tests (1-hour run), the error rate dropped drastically, achieving a <strong>100% success rate</strong> on the most critical clipping points.</p>
+                    <p>For this engineering initiative combining clever mechanical redesign and IoT validation, the project was awarded the <strong>"Improvement Idea of the Month"</strong> prize by the plant management.</p>
+                </div>
+                <div>
+                    <img src="../Photos/forvia-graph-resultats.jpg" alt="Error reduction graph" class="grid-image" style="margin-bottom: 20px;">
+                    <img src="../Photos/forvia-prix.png" alt="Improvement Idea of the Month award ceremony" class="grid-image">
+                </div>
+            </div>
+        </div>
+
+        <div class="content-section" style="background: transparent; border: 1px solid #333;">
+            <h2 style="border: none; text-align: center;">Appendix: Technical Drafting</h2>
+            <p style="text-align: center;">Detailed views and dimensions of the new machined steel gripper finger.</p>
+            <img src="../Photos/forvia-plan.png" alt="Technical drafting of the Forvia finger" class="grid-image" style="margin-top: 30px; background-color: #fff; padding: 10px;">
+        </div>
+
+    </div>
+
+</body>
+</html>

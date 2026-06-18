@@ -19,7 +19,32 @@
         }
 
         * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Inter', sans-serif; }
-        
+        /* LANGUAGE TOGGLE */
+        .lang-toggle {
+            position: absolute;
+            top: 30px;
+            right: 40px;
+            display: flex;
+            gap: 12px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            z-index: 1001; /* Above nav-bar */
+            letter-spacing: 0.05em;
+        }
+        .lang-toggle a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+        .lang-toggle a.active {
+            color: var(--text-primary);
+        }
+        .lang-toggle a:hover {
+            color: var(--text-primary);
+        }
+        .lang-separator {
+            color: #333;
+        }
         /* EFFET DE DEFILEMENT PAR A-COUP (SCROLL SNAPPING) */
         html { 
             scroll-snap-type: y mandatory; 

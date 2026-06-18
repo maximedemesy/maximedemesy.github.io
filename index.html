@@ -8,6 +8,39 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
     
     <style>
+        /* LANGUAGE TOGGLE */
+        .lang-toggle {
+            position: absolute;
+            top: 30px;
+            right: 40px;
+            display: flex;
+            gap: 12px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            z-index: 100;
+            letter-spacing: 0.05em;
+        }
+        .lang-toggle a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+        .lang-toggle a.active {
+            color: var(--text-primary);
+        }
+        .lang-toggle a:hover {
+            color: var(--text-primary);
+        }
+        .lang-separator {
+            color: #333;
+        }
+        
+        @media (max-width: 768px) {
+            .lang-toggle {
+                top: 20px;
+                right: 20px;
+            }
+        }
         /* DESIGN SYSTEM - APPLE DARK MODE STYLE */
         :root {
             --bg-color: #000000;
@@ -288,7 +321,11 @@
     </style>
 </head>
 <body>
-
+<div class="lang-toggle">
+        <a href="#" class="active">FR</a>
+        <span class="lang-separator">|</span>
+        <a href="en/index.html">EN</a>
+    </div>
     <div class="container">
         
         <header>

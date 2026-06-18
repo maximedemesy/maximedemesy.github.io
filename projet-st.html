@@ -19,6 +19,7 @@
         }
 
         * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Inter', sans-serif; }
+        
         /* LANGUAGE TOGGLE */
         .lang-toggle {
             position: absolute;
@@ -45,6 +46,7 @@
         .lang-separator {
             color: #333;
         }
+        
         /* EFFET DE DEFILEMENT PAR A-COUP (SCROLL SNAPPING) */
         html { 
             scroll-snap-type: y mandatory; 
@@ -110,15 +112,17 @@
             .grid-half { grid-template-columns: 1fr; }
             .project-header h1 { font-size: 2rem; }
             .content-section { padding: 20px; }
+            .lang-toggle { top: 20px; right: 20px; }
         }
     </style>
 </head>
 <body>
-<div class="lang-toggle">
+    <div class="lang-toggle">
         <a href="#" class="active">FR</a>
         <span class="lang-separator">|</span>
-        <a href="en/projet-cea.html">EN</a>
+        <a href="en/projet-st.html">EN</a>
     </div>
+    
     <div class="container">
         <div class="nav-bar">
             <a href="index.html" class="back-link">← Retour au portfolio</a>

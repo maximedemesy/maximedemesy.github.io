@@ -1,10 +1,10 @@
 <!DOCTYPE html>
-<html lang="fr">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Projet TraceBot CEA | Maxime Demesy</title>
-    <link rel="icon" type="image/png" href="Photos/favicon.png">
+    <title>Laval Project | Maxime Demesy</title>
+    <link rel="icon" type="image/png" href="../Photos/favicon.png">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
     
     <style>
@@ -51,7 +51,7 @@
             color: #333;
         }
         
-        /* BOUTON RETOUR (MENU STICKY) */
+        /* BACK BUTTON (STICKY BLUR NAV) */
         .nav-bar { 
             position: sticky;
             top: 0;
@@ -65,36 +65,38 @@
         .back-link { color: var(--accent-color); text-decoration: none; font-weight: 600; display: inline-flex; align-items: center; gap: 8px;}
         .back-link:hover { text-decoration: underline; }
 
-        /* HEADER DU PROJET */
+        /* PROJECT HEADER */
         .project-header { margin-bottom: 40px; text-align: center; }
         .project-header h1 { font-size: 3rem; margin-bottom: 10px; }
         .project-tags { color: var(--accent-color); font-weight: 600; text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 20px; display: block;}
 
-        /* SECTION CONFIDENTIEL */
-        .nda-section { 
+        /* WORK IN PROGRESS SECTION */
+        .wip-section { 
             background-color: var(--surface-color); 
             padding: 60px 40px; 
             border-radius: 18px; 
             text-align: center;
-            flex-grow: 1;
+            flex-grow: 1; /* Permet à la section de prendre l'espace restant */
             display: flex;
             flex-direction: column;
             justify-content: center;
             align-items: center;
             margin-bottom: 60px;
-            border: 1px solid rgba(255, 255, 255, 0.05);
         }
 
-        .nda-section h2 { margin-bottom: 20px; font-size: 2rem; color: var(--text-primary); }
-        .nda-section p { color: var(--text-secondary); margin-bottom: 15px; font-size: 1.1rem; max-width: 650px; }
+        .wip-section h2 { margin-bottom: 20px; font-size: 2rem; color: var(--text-primary); }
+        .wip-section p { color: var(--text-secondary); margin-bottom: 15px; font-size: 1.1rem; max-width: 600px; }
 
-        /* ICÔNE BOUCLIER */
-        .nda-icon {
+        /* GEAR ANIMATION */
+        @keyframes spin {
+            100% { transform: rotate(360deg); }
+        }
+        .wip-icon {
             margin-bottom: 30px;
-            color: var(--accent-color);
+            animation: spin 10s linear infinite; 
         }
 
-        /* BOUTONS */
+        /* BUTTONS */
         .btn-container {
             margin-top: 40px;
             display: flex;
@@ -127,9 +129,10 @@
             border-color: var(--text-primary);
         }
 
+        /* MOBILE RESPONSIVE */
         @media (max-width: 768px) {
             .project-header h1 { font-size: 2rem; }
-            .nda-section { padding: 40px 20px; }
+            .wip-section { padding: 40px 20px; }
             .btn-container { flex-direction: column; width: 100%; }
             .btn { width: 100%; text-align: center; }
             .lang-toggle { top: 20px; right: 20px; }
@@ -138,44 +141,39 @@
 </head>
 <body>
     <div class="lang-toggle">
-        <a href="#" class="active">FR</a>
+        <a href="../projet-laval.html">FR</a>
         <span class="lang-separator">|</span>
-        <a href="en/projet-cea.html">EN</a>
+        <a href="#" class="active">EN</a>
     </div>
+    
     <div class="container">
-        <!-- NAVIGATION FIXE -->
         <div class="nav-bar">
-            <a href="index.html" class="back-link">← Retour au portfolio</a>
+            <a href="index.html" class="back-link">← Back to portfolio</a>
         </div>
 
         <div class="project-header">
-            <span class="project-tags">CEA Paris-Saclay | Soft-Robotic & Actionnement par câble</span>
-            <h1>Préhenseur TraceBot</h1>
+            <span class="project-tags">Université Laval, Quebec | Parallel Robotics & 3D Printing</span>
+            <h1>Reconfigurable Parallel Robot</h1>
         </div>
 
-        <!-- SECTION CONFIDENTIALITÉ -->
-        <div class="nda-section">
+        <div class="wip-section">
             
-            <!-- ICÔNE BOUCLIER (SVG pur) -->
-            <div class="nda-icon">
-                <svg width="80" height="80" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-                    <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+            <div class="wip-icon">
+                <svg xmlns="http://www.w3.org/2000/svg" width="80" height="80" viewBox="0 0 24 24" fill="none" stroke="var(--accent-color)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                    <circle cx="12" cy="12" r="3"></circle>
+                    <path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"></path>
                 </svg>
             </div>
 
-            <h2>Projet sous accord de confidentialité (NDA)</h2>
+            <h2>Project under development</h2>
             
-            <p>Les recherches et développements menés sur le préhenseur robotique du projet européen TraceBot sont soumis à des règles strictes de propriété intellectuelle par le CEA Paris-Saclay.</p>
+            <p>The mathematical modeling, the mechanical design of the compliant end-effector, and the manufacturing of this parallel robot are currently underway in the laboratories of Université Laval.</p>
             
-            <p>Afin de respecter ces accords de non-divulgation, les modélisations CAO complètes, les détails des mécanismes compliants, les paramètres d'impression des structures Gyroïdes et les résultats chiffrés des bancs de fatigue ne peuvent être hébergés publiquement sur ce portfolio.</p>
-
-            <p>Je me tiens cependant à votre entière disposition pour échanger de vive voix sur ma méthodologie de conception, les défis d'ingénierie rencontrés (transparence mécanique, prototypage TPU) et les solutions apportées, dans la limite de ce que mon accord de confidentialité m'autorise à partager.</p>
+            <p>This page will be updated with the kinematic study, singularity analysis, Simscape digital twins, and videos of the prototype in action upon completion.</p>
 
             <div class="btn-container">
-                <!-- Lien mailto avec un objet pré-rempli -->
-                <a href="mailto:maxime.demesy@gmail.com?subject=Demande d'informations - Projet TraceBot CEA" class="btn">Me contacter par e-mail</a>
-                <!-- Retourne directement sur la section projets de ta page d'accueil -->
-                <a href="index.html#projets" class="btn btn-outline">Découvrir mes autres projets</a>
+                <a href="mailto:maxime.demesy@gmail.com?subject=Question%20-%20Laval%20Robot%20Project" class="btn">Contact me to learn more</a>
+                <a href="index.html#projets" class="btn btn-outline">Discover my other projects</a>
             </div>
             
         </div>

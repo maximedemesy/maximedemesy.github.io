@@ -23,6 +23,7 @@
         body { background-color: var(--bg-color); color: var(--text-primary); line-height: 1.6; }
         
         .container { max-width: 1000px; margin: 0 auto; padding: 0 20px; min-height: 100vh; display: flex; flex-direction: column;}
+        
         /* LANGUAGE TOGGLE */
         .lang-toggle {
             position: absolute;
@@ -49,6 +50,7 @@
         .lang-separator {
             color: #333;
         }
+        
         /* BOUTON RETOUR (MENU STICKY AVEC EFFET VERRE) */
         .nav-bar { 
             position: sticky;
@@ -132,17 +134,18 @@
             .wip-section { padding: 40px 20px; }
             .btn-container { flex-direction: column; width: 100%; }
             .btn { width: 100%; text-align: center; }
+            .lang-toggle { top: 20px; right: 20px; }
         }
     </style>
 </head>
 <body>
-<div class="lang-toggle">
+    <div class="lang-toggle">
         <a href="#" class="active">FR</a>
         <span class="lang-separator">|</span>
-        <a href="en/projet-cea.html">EN</a>
+        <a href="en/projet-laval.html">EN</a>
     </div>
+    
     <div class="container">
-        <!-- NAVIGATION FIXE -->
         <div class="nav-bar">
             <a href="index.html" class="back-link">← Retour au portfolio</a>
         </div>
@@ -152,10 +155,8 @@
             <h1>Robot Parallèle Reconfigurable</h1>
         </div>
 
-        <!-- SECTION WORK IN PROGRESS -->
         <div class="wip-section">
             
-            <!-- ICÔNE ENGRENAGE ANIMÉE (SVG pur, pas besoin d'image à télécharger !) -->
             <div class="wip-icon">
                 <svg xmlns="http://www.w3.org/2000/svg" width="80" height="80" viewBox="0 0 24 24" fill="none" stroke="var(--accent-color)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
                     <circle cx="12" cy="12" r="3"></circle>
@@ -170,9 +171,7 @@
             <p>Cette page sera mise à jour avec l'étude cinématique, l'analyse des singularités, les jumeaux numériques sous Simscape et les vidéos du prototype en action dès sa finalisation.</p>
 
             <div class="btn-container">
-                <!-- Lien mailto avec un objet pré-rempli -->
                 <a href="mailto:maxime.demesy@gmail.com?subject=Question%20-%20Projet%20Robot%20Laval" class="btn">Me contacter pour en savoir plus</a>
-                <!-- Retourne directement sur la section projets de ta page d'accueil -->
                 <a href="index.html#projets" class="btn btn-outline">Découvrir mes autres projets</a>
             </div>
             

@@ -23,6 +23,7 @@
         body { background-color: var(--bg-color); color: var(--text-primary); line-height: 1.6; }
         
         .container { max-width: 1000px; margin: 0 auto; padding: 0 20px; min-height: 100vh; display: flex; flex-direction: column;}
+        
         /* LANGUAGE TOGGLE */
         .lang-toggle {
             position: absolute;
@@ -49,6 +50,7 @@
         .lang-separator {
             color: #333;
         }
+        
         /* BOUTON RETOUR (MENU STICKY) */
         .nav-bar { 
             position: sticky;
@@ -130,10 +132,17 @@
             .nda-section { padding: 40px 20px; }
             .btn-container { flex-direction: column; width: 100%; }
             .btn { width: 100%; text-align: center; }
+            .lang-toggle { top: 20px; right: 20px; }
         }
     </style>
 </head>
 <body>
+
+    <div class="lang-toggle">
+        <a href="../projet-cea.html">FR</a>
+        <span class="lang-separator">|</span>
+        <a href="#" class="active">EN</a>
+    </div>
 
     <div class="container">
         <!-- NAVIGATION FIXE -->

@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ST Anti-Theft Device Project | Maxime Demesy</title>
+    <link rel="icon" type="image/png" href="../Photos/favicon.png">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+    
+    <style>
+        /* DESIGN SYSTEM - APPLE DARK MODE STYLE */
+        :root {
+            --bg-color: #000000;
+            --surface-color: #1c1c1e;
+            --text-primary: #f5f5f7;
+            --text-secondary: #86868b;
+            --accent-color: #2997ff;
+            --accent-hover: #147ce5;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Inter', sans-serif; }
+        
+        /* LANGUAGE TOGGLE */
+        .lang-toggle {
+            position: absolute;
+            top: 30px;
+            right: 40px;
+            display: flex;
+            gap: 12px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            z-index: 1001; /* Above nav-bar */
+            letter-spacing: 0.05em;
+        }
+        .lang-toggle a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+        .lang-toggle a.active {
+            color: var(--text-primary);
+        }
+        .lang-toggle a:hover {
+            color: var(--text-primary);
+        }
+        .lang-separator {
+            color: #333;
+        }
+        
+        /* SCROLL SNAPPING */
+        html { 
+            scroll-snap-type: y mandatory; 
+            scroll-behavior: smooth; 
+        }
+
+        body { background-color: var(--bg-color); color: var(--text-primary); line-height: 1.6; }
+        
+        .container { max-width: 1000px; margin: 0 auto; padding: 0 20px; }
+        
+        /* BACK BUTTON (STICKY BLUR NAV) */
+        .nav-bar { 
+            position: sticky;
+            top: 0;
+            padding: 20px 0;
+            margin-bottom: 20px;
+            background-color: rgba(0, 0, 0, 0.7);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            z-index: 1000;
+        }
+        .back-link { color: var(--accent-color); text-decoration: none; font-weight: 600; display: inline-flex; align-items: center; gap: 8px;}
+        .back-link:hover { text-decoration: underline; }
+
+        /* PROJECT HEADER */
+        .project-header { margin-bottom: 60px; text-align: center; scroll-snap-align: start; scroll-margin-top: 100px; }
+        .project-header h1 { font-size: 3rem; margin-bottom: 10px; }
+        .project-tags { color: var(--accent-color); font-weight: 600; text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 20px; display: block;}
+
+        /* CONTENT SECTIONS */
+        .content-section { 
+            background-color: var(--surface-color); 
+            padding: 40px; 
+            border-radius: 18px; 
+            margin-bottom: 40px; 
+            scroll-snap-align: start; 
+            scroll-margin-top: 100px; 
+        }
+        .content-section h2 { margin-bottom: 20px; font-size: 1.8rem; border-bottom: 1px solid #333; padding-bottom: 10px; }
+        .content-section p, .content-section ul { color: var(--text-secondary); margin-bottom: 20px; font-size: 1.1rem; }
+        .content-section ul { padding-left: 20px; }
+        .content-section li { margin-bottom: 8px; }
+
+        /* GRID FOR TEXT/IMAGES */
+        .grid-half { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; align-items: center; }
+        .grid-image { width: 100%; border-radius: 12px; border: 1px solid #333; background-color: #000; }
+        
+        /* VIDEO SECTION */
+        .video-container { 
+            width: 100%; 
+            border-radius: 18px; 
+            overflow: hidden; 
+            margin-bottom: 40px; 
+            border: 1px solid #333; 
+            background: #111;
+            scroll-snap-align: center;
+        }
+        .video-container video, .video-container img { width: 100%; display: block; object-fit: cover;}
+
+        /* MOBILE RESPONSIVE */
+        @media (max-width: 768px) {
+            html { scroll-snap-type: none; }
+            .grid-half { grid-template-columns: 1fr; }
+            .project-header h1 { font-size: 2rem; }
+            .content-section { padding: 20px; }
+            .lang-toggle { top: 20px; right: 20px; }
+        }
+    </style>
+</head>
+<body>
+    <div class="lang-toggle">
+        <a href="../projet-st.html">FR</a>
+        <span class="lang-separator">|</span>
+        <a href="#" class="active">EN</a>
+    </div>
+    
+    <div class="container">
+        <div class="nav-bar">
+            <a href="index.html" class="back-link">← Back to portfolio</a>
+        </div>
+
+        <div class="project-header">
+            <span class="project-tags">STMicroelectronics | IoT & Embedded Systems | LoRaWAN</span>
+            <h1>Autonomous Cable Theft Detection Device</h1>
+        </div>
+
+        <div class="video-container">
+            <img src="../Photos/st-hero.jpeg" alt="STMicroelectronics Device">
+        </div>
+
+        <div class="content-section">
+            <h2>1. The Challenge: Securing Power Grids</h2>
+            <div class="grid-half">
+                <div>
+                    <p>Cable theft, particularly copper, represents a major operational and financial problem for infrastructure companies like SNCF or Enedis.</p>
+                    <p>As part of the CROC program, in partnership with STMicroelectronics, the goal was to design a surveillance device capable of meeting extreme constraints: it had to be <strong>fully energy-autonomous</strong>, capable of reliably detecting cable cuts or falls, and transmitting a wireless alert to a remote receiver, all while withstanding harsh weather conditions.</p>
+                </div>
+                <div>
+                    <img src="../Photos/st-schema-bloc.jpg" alt="Global system architecture" class="grid-image" style="background-color: #fff; padding: 10px;">
+                </div>
+            </div>
+        </div>
+
+        <div class="content-section">
+            <h2>2. Electronics Architecture & Detection</h2>
+            <div class="grid-half">
+                <div>
+                    <img src="../Photos/st-capteurs.jpg" alt="STMicroelectronics LIS2DU12 and LIS2MDL sensors" class="grid-image">
+                </div>
+                <div>
+                    <p>The core of the system is based on a <strong>STM32 Nucleo WL55JC1</strong> microcontroller, which natively integrates LoRaWAN long-range communication. The device's intelligence relies on a finite state machine coupled with two key sensors:</p>
+                    <ul>
+                        <li><strong>Wake-up (LIS2DU12 Accelerometer):</strong> This ultra-low-power sensor detects shocks or cable falls. It generates a hardware interrupt (on pin EXTI6) that wakes the microcontroller from deep sleep.</li>
+                        <li><strong>Evaluation (LIS2MDL Magnetometer):</strong> Once awake, the system measures the magnetic field on 3 axes (10 measurements over 100ms) to verify if current is still flowing through the cable (indirect measurement).</li>
+                    </ul>
+                    <p>If the magnetic field change confirms the cut, a LoRa message encoding the alarm cause and battery status is transmitted.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="content-section">
+            <h2>3. Mechanical Design & Sealing</h2>
+            <div class="grid-half">
+                <div>
+                    <p>Designing an enclosure for outdoor IoT poses contradictory challenges: it must be robust, yet allow radio waves and light to pass through.</p>
+                    <ul>
+                        <li><strong>Faraday Cage:</strong> A 100% metal enclosure would protect the electronics but block LoRaWAN transmission. We opted for a machined metal body coupled with a plexiglass top plate.</li>
+                        <li><strong>Solar Energy:</strong> This transparent plate allows powering the internal solar panel while protecting components from destructive UV rays.</li>
+                        <li><strong>Fixing & Sealing:</strong> The cable interface is secured by 3D-printed <strong>ASA</strong> jaws (a UV and weather-resistant polymer). Global sealing is guaranteed by O-rings, and silica gel is integrated to manage internal condensation.</li>
+                    </ul>
+                </div>
+                <div>
+                    <img src="../Photos/st-boitier.jpg" alt="CAD design of the waterproof enclosure" class="grid-image">
+                </div>
+            </div>
+        </div>
+
+        <div class="content-section">
+            <h2>4. Energy Management (Energy Harvesting)</h2>
+            <div class="grid-half">
+                <div>
+                    <img src="../Photos/st-energie.png" alt="Energy consumption analysis" class="grid-image" style="background-color: #fff; padding: 10px;">
+                </div>
+                <div>
+                    <p>Total autonomy was the main constraint. We used the <strong>STEVAL-HARVEST1</strong> energy harvesting board (solar panel coupled with supercapacitors).</p>
+                    <p>The firmware (based on the ST LoRaWAN END NODE package) automatically manages power by putting non-critical components to sleep. I used the <strong>STLink-V3PWR</strong> tool to precisely profile the microcontroller's power consumption during sleep, measurement, and radio transmission phases, in order to optimize the code and ensure the device's durability in the field.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="content-section">
+            <h2>5. Results & Perspectives</h2>
+            <div class="grid-half">
+                <div>
+                    <p>The final prototype successfully passed validation tests: the enclosure is waterproof, shock-resistant, detects cable falls and current cuts via indirect magnetometry, and transmits alerts autonomously via the LoRaWAN network.</p>
+                    <p><strong>Industrial Perspectives:</strong> While functional, optimizing standby consumption (currently 2.8 mA) remains an improvement goal, aiming for a few hundred microamps. Moving from an evaluation board (Nucleo) to a custom production PCB will drastically reduce the final footprint.</p>
+                </div>
+                <div>
+                    <img src="../Photos/st-resultat.jpg" alt="Final prototype and team" class="grid-image">
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+</body>
+</html>
